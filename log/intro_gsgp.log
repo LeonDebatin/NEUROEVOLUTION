@@ -1,0 +1,2 @@
+INFO:IP-SML,GeneticAlgorithm,1:GPOL,1,0,0,9,tensor(2.3769),tensor(3.5143, dtype=torch.float64),1753.330810546875,4749.525390625
+INFO:IP-SML,GeneticAlgorithm,1:GPOL,1,0,0,3,tensor(4.9197),tensor(5.1324, dtype=torch.float64),707702.8125,2237313.0
