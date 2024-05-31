@@ -1,0 +1,2 @@
+model;mean_squared_error;root_mean_squared_error;mean_absolute_error;mean_absolute_percentage_error;r2_score;correlation
+ElasticNet;0.003399569376812335;0.05830582626815553;0.047694847145113774;0.00971935421066734;0.13210267100589324;0.4037614596577001

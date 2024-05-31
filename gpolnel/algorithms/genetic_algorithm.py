@@ -127,7 +127,7 @@ class GeneticAlgorithm(PopulationBased):
         self.elitism = elitism
         self.reproduction = reproduction
 
-    def _set_pop(self, pop_repr):
+    def _set_pop(self, pop_repr, tree=True):
         """Encapsulates the set method of the population attribute of GeneticAlgorithm algorithm.
 
         Parameters
@@ -140,7 +140,10 @@ class GeneticAlgorithm(PopulationBased):
         None
         """
         # Creates an object of type 'PopulationTree', given the initial representation
-        self.pop = PopulationTree(pop_repr)
+        if tree:
+            self.pop = PopulationTree(pop_repr)
+        else:
+            self.pop = Population(pop_repr)
         # Evaluates population on the problem instance
         self.pi.evaluate_pop(self.pop)
         # Gets the best in the initial population
@@ -214,7 +217,8 @@ class GeneticAlgorithm(PopulationBased):
             logging.basicConfig(filename=log_path, filemode='w', level=logging.INFO)
 
         # 1)
-        self._initialize(start_at=start_at)
+        tree_based = 'function_set' in self.pi.sspace
+        self._initialize(start_at=start_at, tree=tree_based)
 
         # Optionally, evaluates the elite on the test partition
         if test_elite:
@@ -295,6 +299,7 @@ class GeneticAlgorithm(PopulationBased):
             # 2) 1)
             offs_pop = globals()[self.pop.__class__.__name__](offs_pop)
             self.pi.evaluate_pop(offs_pop)
+
 
             # Overrides elites's information, if it was re-evaluated, and removes it from 'offsprings'
             if self._batch_training:
@@ -553,6 +558,7 @@ class GSGP(GeneticAlgorithm):
         self.pop = deepcopy(pop)
         # Evaluates the population on a given problem instance for train and test partitions
         self.pi.evaluate_pop(self.pop)
+        # self.pi.evaluate_pop(self.pop, test=True)
         # Sets the elite
         self._set_best_sol()
 
@@ -815,13 +821,11 @@ class GSGP(GeneticAlgorithm):
                     line_format = '{:<10d} {:<1} {:<8d} {:<16g} {:>10.3f} {:<1} {:<16g} {:>16g}'
                 else:
                     line_format = '{:<10d} {:<1} {:<8d} {} {:>10.3f} {:<1} {:<16g} {:>16g}'
-                # If the the type of OP is of knapsack's family, then sum the vector, otherwise the length
                 depth = self.best_sol.depth
                 if verbose >= 2:
                     avgfit, stdfit = pop.fit_avg, pop.fit_std
                 else:
                     avgfit, stdfit = -1.0, -1.0
-
                 print(line_format.format(it, "|", depth, self.best_sol.fit.tolist(), timing, "|", avgfit, stdfit))
 
     def _create_log_event(self, it, timing, pop, log, log_xp='GPOLNEL'):
