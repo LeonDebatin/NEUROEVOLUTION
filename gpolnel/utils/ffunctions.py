@@ -163,17 +163,17 @@ class Ffunctions():
     # RMSE
     def rmse(self, **kwargs):
         if kwargs['call'] == 'dl':
-            print(1)
+            #print(1, self.rmse_dl(**kwargs))
             return self.rmse_dl(**kwargs)
         if kwargs['call'] == 'join':
-            print(2)
+            #print(2, self.rmse_join(**kwargs))
             return self.rmse_join(**kwargs)
     def rmse_dl(self, **kwargs):
         # Returns the sum of squared errors
-        print(3)
+        #print(3, torch.sum(torch.pow(torch.sub(kwargs['y_true'], kwargs['y_pred']), 2), len(kwargs['y_pred'].shape)-1))
         return torch.sum(torch.pow(torch.sub(kwargs['y_true'], kwargs['y_pred']), 2), len(kwargs['y_pred'].shape)-1)
     def rmse_join(self, **kwargs):
-        print(4)
+        #print(4,torch.sqrt(kwargs['fit_dl']/kwargs['n']))
         return torch.sqrt(kwargs['fit_dl']/kwargs['n'])
 
 
