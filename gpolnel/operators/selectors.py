@@ -16,6 +16,7 @@ import torch
 
 from copy import deepcopy
 
+
 def prm_tournament(pressure):
     """ Implements tournament selection algorithm
 

@@ -37,6 +37,7 @@ class _Function(object):
     arity : int
         The number of arguments that the ``function`` takes.
     """
+
     def __init__(self, function_, name, arity, arithmetic):
         self.function_ = function_
         self.name = name
@@ -80,6 +81,7 @@ def make_function(function_, name, arity, arithmetic):
         An instance of type _Function.
     """
     return _Function(function_, name, arity, arithmetic)
+
 
 
 def protected_div(x1, x2):
@@ -319,103 +321,3 @@ def _execute_tree(repr_, X):
                     return intermediate_result
     return None
 
-
-# +++++++++++++++++++++++++++ GSGP reconstruction algorithm
-def prm_reconstruct_tree(history, path_init_pop, path_rts, device='cpu'):
-    """ Implements GSGP trees' reconstruction
-
-    This function is used to provide the reconstruct_tree (the inner
-    function) with the necessary environment (the outer scope) - the
-    table which stores the evolution's history, the paths towards the
-    initial and the random trees, and the processing device that was
-    used in the underlying experiment.
-
-    Parameters
-    ----------
-    history : pandas.DataFrame
-        Stores the evolution's history in the following columns:
-            - "Iter": iteration's number;
-            - "Operator": the variation operator that was applied on
-             a given offspring;
-            - "T1": the ID of the first parent;
-            - "T2": the ID of the second parent (if GSC was applied);
-            - "Tr": the ID of a random tree generated (assumes only
-             one random tree is necessary to apply an operator);
-            - "ms": mutation's step (if GSM was applied);
-            - "Fitness": offspring's training fitness;
-    path_init_pop : str
-        Paths towards the initial trees.
-    path_rts : str
-        Paths towards the random trees.
-    device : str (default="cpu")
-        Specification of the processing device that was used in the
-        underling experiment.
-
-    Returns
-    -------
-    reconstruct_tree : function
-        A function that reconstructs the user-specified tree.
-    """
-    # Verifies initial trees' directory
-    if not os.path.isdir(path_init_pop):
-        raise FileNotFoundError(errno.ENOENT, os.strerror(errno.ENOENT), path_init_pop)
-    # Verifies random trees' directory
-    if not os.path.isdir(path_rts):
-        raise FileNotFoundError(errno.ENOENT, os.strerror(errno.ENOENT), path_rts)
-
-    def reconstruct_tree(id):
-        """ Implements GSGP trees' reconstruction
-
-        Reconstructs the user-specified tree following its evolutionary
-        history.
-
-        Parameters
-        ----------
-        id : str
-            Row's index in history pandas.DataFrame, which serves as an
-            identification of the tree to be reconstructed.
-
-        Returns
-        -------
-        list
-            GSGP tree stored as a LISP tree.
-        """
-        if history.loc[id, "Iter"] == 1:
-            if history.loc[id, "Operator"] == "crossover":
-                # Loads trees
-                with open(os.path.join(path_init_pop, history.loc[id, "T1"] + '.pickle'), 'rb') as f:
-                    t1 = pickle.load(f)
-                with open(os.path.join(path_init_pop, history.loc[id, "T2"] + '.pickle'), 'rb') as f:
-                    t2 = pickle.load(f)
-                with open(os.path.join(path_rts, history.loc[id, "Tr"] + '.pickle'), 'rb') as f:
-                    tr = pickle.load(f)
-                # Returns as geometric semantic crossover
-                return [add2, mul2] + tr + t1 + [mul2, sub2, torch.tensor([1.0], device=device)] + tr + t2
-            else:
-                # Loads trees
-                with open(os.path.join(path_init_pop, history.loc[id, "T1"] + '.pickle'), 'rb') as f:
-                    t1 = pickle.load(f)
-                with open(os.path.join(path_rts, history.loc[id, "Tr"] + '.pickle'), 'rb') as f:
-                    tr = pickle.load(f)
-                ms = torch.tensor([history.loc[id, "ms"]], device=device)
-
-                # Returns as geometric semantic mutation
-                return [add2] + t1 + [mul2, ms] + tr
-        else:
-            if history.loc[id, "Operator"] == "crossover":
-                # Loads the random tree
-                with open(os.path.join(path_rts, history.loc[id, "Tr"] + '.pickle'), 'rb') as f:
-                    tr = pickle.load(f)
-                # Returns as geometric semantic crossover recursively
-                return [add2, mul2]+tr+reconstruct_tree(history.loc[id, "T1"]) + \
-                       [mul2, sub2, torch.tensor([1.0], device=device)]+tr+reconstruct_tree(history.loc[id, "T2"])
-            else:
-                # Loads the random tree
-                with open(os.path.join(path_rts, history.loc[id, "Tr"] + '.pickle'), 'rb') as f:
-                    tr = pickle.load(f)
-                ms = torch.tensor([history.loc[id, "ms"]], device=device)
-
-                # Returns as geometric semantic mutation
-                return [add2]+reconstruct_tree(history.loc[id, "T1"])+[mul2, ms]+tr
-
-    return reconstruct_tree

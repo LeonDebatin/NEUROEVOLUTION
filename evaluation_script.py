@@ -43,6 +43,8 @@ def main(file_path_X_test, file_path_y_test):
     y_test = pd.read_csv(file_path_y_test).to_numpy().ravel()
     
     X_train = pd.read_csv("datamart/X_train_untouched.csv")
+    y_train = pd.read_csv("datamart/y_lactose_train.csv").to_numpy().ravel()
+    mean = [np.mean(y_train) for _ in range(len(y_test))]
     
     columns_to_clip = ['dim', 'dry_days', 'rumination_min_day', 'milk_kg_day', 'colostrum_separated_kg']
     X_train_clipped = X_train.copy()
@@ -61,9 +63,13 @@ def main(file_path_X_test, file_path_y_test):
     
     #Evaluation
     
+    #Eval Mean
+    y_pred = mean
+    mean_mse ,mean_rmse, mean_mae, mean_mape, mean_r2, mean_corr = eval_pred(y_test, y_pred)
+    
     #Eval EN
     print('Evaluate Elastic Net')
-    with open('ElasticNet', 'rb') as file:
+    with open('models/BasicMLModels/LinearRegression', 'rb') as file:
         model = pickle.load(file)    
         
     y_pred = model.predict(X_test_clipped_scaled)
@@ -84,7 +90,8 @@ def main(file_path_X_test, file_path_y_test):
     with open('evaluation_table.csv', 'w', newline='\n') as csvfile:
         w = csv.writer(csvfile, delimiter=';')
         w.writerow(['model'] + ['mean_squared_error'] +['root_mean_squared_error'] + ['mean_absolute_error'] + ['mean_absolute_percentage_error']+ ['r2_score'] + ['correlation'] )
-        w.writerow(['ElasticNet'] + [en_mse] + [en_rmse] + [en_mae] + [en_mape]+ [en_r2] + [en_corr])
+        w.writerow(['Mean'] + [mean_mse] + [mean_rmse] + [mean_mae] + [mean_mape]+ [mean_r2] + [mean_corr])
+        w.writerow(['LinearRegression'] + [en_mse] + [en_rmse] + [en_mae] + [en_mape]+ [en_r2] + [en_corr])
     
     
     with open('evaluation_table.csv', 'r', newline='') as file:
