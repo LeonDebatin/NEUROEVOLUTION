@@ -126,11 +126,7 @@ class Population:
         # Set Population solutions
         self.individuals = individuals.copy()
         # Set Population structural attributes
-        if type(individuals[0].repr_) is torch.Tensor:
-            repr_ = torch.tensor([ind.repr_ for ind in individuals])
-        else:
-            repr_ = [ind.repr_ for ind in individuals]
-        self._set_repr(repr_)
+        self._set_repr([ind.repr_ for ind in individuals])
         # Set Population fitnesses attributes
         self.fit = torch.stack([ind.fit for ind in self.individuals], dim=0)
         self.valid = [ind.valid for ind in self.individuals]

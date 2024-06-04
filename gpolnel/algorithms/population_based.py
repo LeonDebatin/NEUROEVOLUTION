@@ -84,7 +84,7 @@ class PopulationBased(RandomSearch):
         # Initializes the population's object (None by default)
         self.pop = None
 
-    def _initialize(self, start_at=None):
+    def _initialize(self, start_at=None, tree=False):
         """Initializes the solve at a given point in 𝑆.
 
         Note that the user-specified start_at is assumed to be feasible
@@ -107,7 +107,7 @@ class PopulationBased(RandomSearch):
         if isinstance(pop_repr[0], torch.Tensor):
             pop_repr = torch.stack(pop_repr)
         # Set pop and best solution
-        self._set_pop(pop_repr=pop_repr)
+        self._set_pop(pop_repr=pop_repr, tree=tree)
 
     def _set_pop(self, pop_repr):
         """Encapsulates the set method of the population attribute of PopulationBased algorithm.
@@ -227,7 +227,7 @@ class PopulationBased(RandomSearch):
                 else:
                     line_format = '{:<10d} {:<1} {:<8d} {} {} {:>10.3f} {:<1} {:<16g} {:>16g}'
                 length = len(self.best_sol)
-                if verbose == 2:
+                if verbose >= 2:
                     avgfit, stdfit = pop.fit_avg, pop.fit_std
                 else:
                     avgfit, stdfit = -1.0, -1.0
@@ -240,7 +240,7 @@ class PopulationBased(RandomSearch):
                     line_format = '{:<10d} {:<1} {:<8d} {} {:>10.3f} {:<1} {:<16g} {:>16g}'
                 # If the the type of OP is of knapsack's family, then sum the vector, otherwise the length
                 length = int(self.best_sol.repr_.sum().item()) if isinstance(self.pi, Knapsack01) else len(self.best_sol)
-                if verbose == 2:
+                if verbose >= 2:
                     avgfit, stdfit = pop.fit_avg, pop.fit_std
                 else:
                     avgfit, stdfit = -1.0, -1.0

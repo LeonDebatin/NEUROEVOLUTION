@@ -16,7 +16,6 @@ import torch
 
 from copy import deepcopy
 
-
 def prm_tournament(pressure):
     """ Implements tournament selection algorithm
 
@@ -69,64 +68,67 @@ def prm_tournament(pressure):
 
     return tournament
 
+def prm_roulette_wheel():
 
-def roulette_wheel(pop, min_):
-    """ Implements roulette wheel selection algorithm
+    def roulette_wheel(pop, min_):
+        """ Implements roulette wheel selection algorithm
 
-    Generates and returns the index in [0, len(pop)[ range
-    after fitness proportionate (a.k.a. roulette wheel)
-    selection algorithm.
+        Generates and returns the index in [0, len(pop)[ range
+        after fitness proportionate (a.k.a. roulette wheel)
+        selection algorithm.
 
-    Parameters
-    ----------
-    pop : Population
-        The pointer to the population to select individuals from.
-    min_ : bool
-        The purpose of optimization. In this procedure, as selection
-        is performed randomly, it exists only for to obey library's
-        standards.
+        Parameters
+        ----------
+        pop : Population
+            The pointer to the population to select individuals from.
+        min_ : bool
+            The purpose of optimization. In this procedure, as selection
+            is performed randomly, it exists only for to obey library's
+            standards.
 
-    Returns
-    -------
-    int
-        The index of the solution after fitness proportionate selection.
-    """
-    prop_fit = pop.fit/pop.fit.sum()
-    _, indices = torch.sort(prop_fit, descending=min_)
-    cum_fit = torch.cumsum(prop_fit, dim=0)
-    return indices[cum_fit > random.uniform(0, 1)][0]
+        Returns
+        -------
+        int
+            The index of the solution after fitness proportionate selection.
+        """
+        prop_fit = pop.fit/pop.fit.sum()
+        _, indices = torch.sort(prop_fit, descending=min_)
+        cum_fit = torch.cumsum(prop_fit, dim=0)
+        return indices[cum_fit > random.uniform(0, 1)][0]
+    return roulette_wheel
 
+def prm_rank_selection():
 
-def rank_selection(pop, min_):
-    """ Implements rank selection algorithm
+    def rank_selection(pop, min_):
+        """ Implements rank selection algorithm
 
-    Generates and returns the index in [0, len(pop)[ range. Parents'
-    selection depends on the relative rank of the fitness and not the
-    fitness itself. The higher the rank of a given parent, the higher
-    its probability of being selected. It is recommended to use when
-    the individuals in the population have very close fitness values.
+        Generates and returns the index in [0, len(pop)[ range. Parents'
+        selection depends on the relative rank of the fitness and not the
+        fitness itself. The higher the rank of a given parent, the higher
+        its probability of being selected. It is recommended to use when
+        the individuals in the population have very close fitness values.
 
-    Parameters
-    ----------
-    pop : Population
-        The pointer to the population to select individuals from.
-    min_ : bool
-        The purpose of optimization. In this procedure, as selection
-        is performed randomly, it exists only for to obey library's
-        standards.
+        Parameters
+        ----------
+        pop : Population
+            The pointer to the population to select individuals from.
+        min_ : bool
+            The purpose of optimization. In this procedure, as selection
+            is performed randomly, it exists only for to obey library's
+            standards.
 
-    Returns
-    -------
-    int
-        The index of the solution after fitness rank selection.
-    """
-    _, indices = torch.sort(pop.fit, descending=min_)
-    indices_ = indices + 1
-    indices_prop = indices_/indices_.sum()
-    cum_indices = torch.cumsum(indices_prop, dim=0)
-    sel = random.uniform(0, 1)
-    return torch.flip(indices, (0, ))[cum_indices > sel][0] if min_ else indices[cum_indices > sel][0]
-
+        Returns
+        -------
+        int
+            The index of the solution after fitness rank selection.
+        """
+        _, indices = torch.sort(pop.fit, descending=min_)
+        indices_ = indices + 1
+        indices_prop = indices_/indices_.sum()
+        cum_indices = torch.cumsum(indices_prop, dim=0)
+        sel = random.uniform(0, 1)
+        return torch.flip(indices, (0, ))[cum_indices > sel][0] if min_ else indices[cum_indices > sel][0]
+    return rank_selection
 
 def rnd_selection(pop, min_):
     """ Implements random selection algorithm

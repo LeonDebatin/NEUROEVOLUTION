@@ -129,74 +129,6 @@ class Constant:
     def __str__(self):
         return 'Constant set: values {}'.format(self.values)
 
-
-# def grow(sspace, n_sols):
-#     return [grow_individual(sspace) for _ in range(n_sols)]
-
-
-
-def grow(sspace, n_sols):
-    """ Implements Grow initialization algorithm for GP
- 
-    The implementation assumes the probability of sampling a program
-    element from the set of functions is the same as from the set of
-    terminals until achieving the maximum depth (i.e., 50%). The
-    probability of selecting a constant from the set of terminals
-    is controlled by the value in "p_constants" key, defined in sspace
-    dictionary, and equals 0.5*sspace["p_constants"].
- 
-    Parameters
-    ----------
-    sspace : dict
-        Problem instance's solve-space.
-    n_sols : int
-        Number of solutions to generate.
- 
-    Returns
-    -------
-    list
-        A list of program elements which represents the initial computer
-        programs (candidate solutions). Each program follows LISP-based
-        formulation and Polish pre-fix notation.
-    """
-    solutions = []
-    for _ in range(n_sols):
-        # Starts the tree with a function
-        function_ = random.choice(sspace['function_set'])
-        program = [function_]
-        terminal_stack = [function_.arity]
-        max_depth = random.randint(1, sspace['max_init_depth'])
- 
-        # While there are open branches
-        while terminal_stack:
-            depth = len(terminal_stack)
-            choice = random.randint(0, 1)  # 0: function_, 1: terminal (50/50)
- 
-            # If max init depth allows and the random choice was for a function,
-            # Adds a function node to the tree structure
-            if (depth < max_depth) and choice == 0:
-                function_ = random.choice(sspace['function_set'])
-                program.append(function_)
-                terminal_stack.append(function_.arity)
-            else:
-                # Otherwise, adds a terminal node to the tree structure
-                terminal = Terminal(
-                    constant_set=sspace['constant_set'],
-                    p_constants=sspace['p_constants'],
-                    n_dims=sspace['n_dims'],
-                    device=sspace['device']
-                ).initialize()
-                program.append(terminal)
-                terminal_stack[-1] -= 1
-                # Updates the terminal stack controller
-                while terminal_stack[-1] == 0:
-                    terminal_stack.pop()
-                    if not terminal_stack:  # If terminal stack is empty, returns the tree structure
-                        break
-                    terminal_stack[-1] -= 1
-        solutions.append(program)
-    return solutions
-
 def grow_individual(sspace):
     """ Implements Grow initialization algorithm for GP
 
@@ -253,6 +185,9 @@ def grow_individual(sspace):
                     return program
                 terminal_stack[-1] -= 1
     return None
+
+def grow(sspace, n_sols):
+    return [grow_individual(sspace) for _ in range(n_sols)]
 
 
 def prm_grow(sspace):
@@ -328,17 +263,172 @@ def prm_grow(sspace):
     return grow_
 
 
-def full(sspace, n_sols):
-    pass
-
-
 def full_individual(sspace):
-    pass
+    """ Implements Full initialization algorithm
+
+    The probability of selecting a constant from the set of terminals
+    is controlled by the value in "p_constants" key, defined in sspace
+    dictionary, and equals 0.5*sspace["p_constants"].
+
+    Parameters
+    ----------
+    sspace : dict
+        Problem instance's solve-space.
+
+    Returns
+    -------
+    program : list
+        A list of program elements which represents an initial computer
+        program (candidate solution). The program follows LISP-based
+        formulation and Polish pre-fix notation.
+    """
+    function_ = random.choice(sspace["function_set"])
+    program = [function_]
+    terminal_stack = [function_.arity]
+
+    while terminal_stack:
+        depth = len(terminal_stack)
+
+        if depth < sspace["max_init_depth"]:
+            function_ = random.choice(sspace["function_set"])
+            program.append(function_)
+            terminal_stack.append(function_.arity)
+        else:
+            terminal = Terminal(
+                constant_set=sspace["constant_set"],
+                p_constants=sspace["p_constants"],
+                n_dims=sspace["n_dims"],
+                device=sspace["device"]
+            ).initialize()
+            program.append(terminal)
+            terminal_stack[-1] -= 1
+            while terminal_stack[-1] == 0:
+                terminal_stack.pop()
+                if not terminal_stack:
+                    return program
+                terminal_stack[-1] -= 1
+    return None
+
+def full(sspace, n_sols):
+    return [full_individual(sspace) for _ in range(n_sols)]
 
 
 def prm_full(sspace):
-    pass
+    """ Implements Full initialization algorithm
+
+    The library's interface restricts variation operators' parameters
+    to solutions' representations only. However, the functioning of
+    some of the GP's variation operators requires random trees'
+    generation - this is the case of the sub-tree mutation, the
+    geometric semantic operators, ... In this sense, the variation
+    functions' enclosing scope does not contain enough information to
+    generate the initial trees. To remedy this situation, closures are
+    used as they provide the variation functions the necessary outer
+    scope for trees' initialization: the solve space. Moreover, this
+    solution, allows one to have a deeper control over the operators'
+    functioning - an important feature for the research purposes.
+
+    Parameters
+    ----------
+    sspace : dict
+        Problem instance's solve-space.
+
+    Returns
+    -------
+    full_ : function
+        A function which implements Full initialization algorithm,
+        which uses the user-specified solve space for trees'
+        initialization.
+    """
+    def full_():
+        """ Implements Full initialization algorithm
+
+        Implements Full initialization algorithm, which uses the user-
+        specified solve space for trees' initialization.
+
+        Returns
+        -------
+        program : list
+            A list of program elements which represents an initial computer
+            program (candidate solution). The program follows LISP-based
+            formulation and Polish pre-fix notation.
+        """
+        function_ = random.choice(sspace["function_set"])
+        program = [function_]
+        terminal_stack = [function_.arity]
+
+        while terminal_stack:
+            depth = len(terminal_stack)
+
+            if depth < sspace["max_init_depth"]:
+                function_ = random.choice(sspace["function_set"])
+                program.append(function_)
+                terminal_stack.append(function_.arity)
+            else:
+                terminal = Terminal(
+                    constant_set=sspace["constant_set"],
+                    p_constants=sspace["p_constants"],
+                    n_dims=sspace["n_dims"],
+                    device=sspace["device"]
+                ).initialize()
+                program.append(terminal)
+                terminal_stack[-1] -= 1
+                while terminal_stack[-1] == 0:
+                    terminal_stack.pop()
+                    if not terminal_stack:
+                        return program
+                    terminal_stack[-1] -= 1
+        return None
+
+    return full_
 
 
 def rhh(sspace, n_sols):
-    pass
+    """ Implements Ramped Half and Half initialization algorithm
+
+    Implements the Ramped Half and Half, which, by itself, uses
+    Full and Grow.
+
+    Parameters
+    ----------
+    sspace : dict
+        Problem-specific solve space (𝑆).
+    n_sols : int
+        The number of solutions in the population
+
+    Returns
+    -------
+    pop : list
+        A list of program elements which represents the population
+        initial of computer programs (candidate solutions). Each
+        program is a list of program's elements that follows a
+        LISP-based formulation and Polish pre-fix notation.
+    """
+    pop = []
+    n_groups = sspace["max_init_depth"]
+    group_size = math.floor((n_sols / 2.) / n_groups)
+    for group in range(n_groups):
+        max_depth_group = group + 1
+        for i in range(group_size):
+            sspace_group = sspace
+            sspace_group["max_init_depth"] = max_depth_group
+            pop.append(full_individual(sspace_group))
+            pop.append(grow_individual(sspace_group))
+    while len(pop) < n_sols:
+        pop.append(grow_individual(sspace_group) if random.randint(0, 1) else full_individual(sspace_group))
+    return pop
+
+def nn_init_individual(sspace):
+    n_neurons = [sspace['input_shape']] + sspace['n_hidden_neurons'] + [sspace['n_output']]
+    # Weights
+    sol = []
+    for i_nn in range(len(n_neurons) - 1):
+        sol += [torch.randn(n_neurons[i_nn], n_neurons[i_nn + 1], device=sspace['device'])*sspace['init_factor']]
+    # Biases
+    sol = [sol, [torch.randn(n, device=sspace['device']) for n in n_neurons[1:]]]
+    return sol
+
+
+def nn_init(sspace, n_sols):
+    return [nn_init_individual(sspace) for _ in range(n_sols)]
+

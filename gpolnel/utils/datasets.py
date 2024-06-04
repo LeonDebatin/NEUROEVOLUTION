@@ -3,7 +3,7 @@ import torch
 import pandas as pd
 
 
-def load_airfoil(X_y=False):
+def load_airfoil(X_y=False, device='cpu'):
     """ Loads and returns the Airfoil Self-Noise data set (regression)
 
     NASA data set, obtained from a series of aerodynamic and acoustic
@@ -31,12 +31,12 @@ def load_airfoil(X_y=False):
     """
     df = pd.read_csv(os.path.join(os.path.dirname(os.path.realpath(__file__)), "data", "airfoil.txt"))
     if X_y:
-        return torch.from_numpy(df.values[:, :-1]).float(), torch.from_numpy(df.values[:, -1]).float()
+        return torch.from_numpy(df.values[:, :-1]).float().to(device), torch.from_numpy(df.values[:, -1]).float().to(device)
     else:
         return df
 
 
-def load_boston(X_y=False):
+def load_boston(X_y=False, device='cpu'):
     """ Loads and returns the Boston Housing data set (regression)
 
     This dataset contains information collected by the U.S. Census
@@ -66,12 +66,12 @@ def load_boston(X_y=False):
     """
     df = pd.read_csv(os.path.join(os.path.dirname(os.path.realpath(__file__)), "data", "boston.txt"))
     if X_y:
-        return torch.from_numpy(df.values[:, :-1]).float(), torch.from_numpy(df.values[:, -1]).float()
+        return torch.from_numpy(df.values[:, :-1]).float().to(device), torch.from_numpy(df.values[:, -1]).float().to(device)
     else:
         return df
 
 
-def load_breast_cancer(X_y=False):
+def load_breast_cancer(X_y=False, device='cpu'):
     """ Loads and returns the breast cancer data set (classification)
 
     Breast Cancer Wisconsin (Diagnostic) dataset.
@@ -100,12 +100,12 @@ def load_breast_cancer(X_y=False):
     """
     df = pd.read_csv(os.path.join(os.path.dirname(os.path.realpath(__file__)), "data", "breast_cancer.txt"))
     if X_y:
-        return torch.from_numpy(df.values[:, :-1]).float(), torch.from_numpy(df.values[:, -1]).float()
+        return torch.from_numpy(df.values[:, :-1]).float().to(device), torch.from_numpy(df.values[:, -1]).float().to(device)
     else:
         return df
 
 
-def load_concrete_slump(X_y=False):
+def load_concrete_slump(X_y=False, device='cpu'):
     """ Loads and returns the Concrete Slump data set (regression)
 
     Concrete is a highly complex material. The slump flow of concrete
@@ -133,12 +133,12 @@ def load_concrete_slump(X_y=False):
     """
     df = pd.read_csv(os.path.join(os.path.dirname(os.path.realpath(__file__)), "data", "concrete_slump.txt"))
     if X_y:
-        return torch.from_numpy(df.values[:, :-1]).float(), torch.from_numpy(df.values[:, -1]).float()
+        return torch.from_numpy(df.values[:, :-1]).float().to(device), torch.from_numpy(df.values[:, -1]).float().to(device)
     else:
         return df
 
 
-def load_concrete_strength(X_y=False):
+def load_concrete_strength(X_y=False, device='cpu'):
     """ Loads and returns the Concrete Strength data set (regression)
 
     Concrete is the most important material in civil engineering. The
@@ -166,12 +166,12 @@ def load_concrete_strength(X_y=False):
     """
     df = pd.read_csv(os.path.join(os.path.dirname(os.path.realpath(__file__)), "data", "concrete_strength.txt"))
     if X_y:
-        return torch.from_numpy(df.values[:, :-1]).float(), torch.from_numpy(df.values[:, -1]).float()
+        return torch.from_numpy(df.values[:, :-1]).float().to(device), torch.from_numpy(df.values[:, -1]).float().to(device)
     else:
         return df
 
 
-def load_diabetes(X_y = False):
+def load_diabetes(X_y = False, device='cpu'):
     """ Loads and returns the Diabetes data set(regression)
 
     The file is located in /gpol/utils/data/diabetes.txt
@@ -198,12 +198,12 @@ def load_diabetes(X_y = False):
     """
     df = pd.read_csv(os.path.join(os.path.dirname(os.path.realpath(__file__)), "data", "diabetes.txt"))
     if X_y:
-        return torch.from_numpy(df.values[:, :-1]).float(), torch.from_numpy(df.values[:, -1]).float()
+        return torch.from_numpy(df.values[:, :-1]).float().to(device), torch.from_numpy(df.values[:, -1]).float().to(device)
     else:
         return df
 
 
-def load_efficiency_heating(X_y=False):
+def load_efficiency_heating(X_y=False, device='cpu'):
     """ Loads and returns the Heating Efficiency data set(regression)
 
     The data set regards heating load assessment of buildings (that is,
@@ -230,12 +230,12 @@ def load_efficiency_heating(X_y=False):
     """
     df = pd.read_csv(os.path.join(os.path.dirname(os.path.realpath(__file__)), "data", "efficiency_heating.txt"))
     if X_y:
-        return torch.from_numpy(df.values[:, :-1]).float(), torch.from_numpy(df.values[:, -1]).float()
+        return torch.from_numpy(df.values[:, :-1]).float().to(device), torch.from_numpy(df.values[:, -1]).float().to(device)
     else:
         return df
 
 
-def load_efficiency_cooling(X_y=False):
+def load_efficiency_cooling(X_y=False, device='cpu'):
     """ Loads and returns the Cooling Efficiency data set(regression)
 
     The data set regards cooling load assessment of buildings (that is,
@@ -262,12 +262,12 @@ def load_efficiency_cooling(X_y=False):
     """
     df = pd.read_csv(os.path.join(os.path.dirname(os.path.realpath(__file__)), "data", "efficiency_cooling.txt"))
     if X_y:
-        return torch.from_numpy(df.values[:, :-1]).float(), torch.from_numpy(df.values[:, -1]).float()
+        return torch.from_numpy(df.values[:, :-1]).float().to(device), torch.from_numpy(df.values[:, -1]).float().to(device)
     else:
         return df
 
 
-def load_forest_fires(X_y=False):
+def load_forest_fires(X_y=False, device='cpu'):
     """ Loads and returns the Forest Fires data set (regression)
 
     The data set regards the prediction of the burned area of forest
@@ -295,12 +295,12 @@ def load_forest_fires(X_y=False):
     """
     df = pd.read_csv(os.path.join(os.path.dirname(os.path.realpath(__file__)), "data", "forest_fires.txt"))
     if X_y:
-        return torch.from_numpy(df.values[:, :-1]).float(), torch.from_numpy(df.values[:, -1]).float()
+        return torch.from_numpy(df.values[:, :-1]).float().to(device), torch.from_numpy(df.values[:, -1]).float().to(device)
     else:
         return df
 
 
-def load_parkinson_updrs(X_y=False):
+def load_parkinson_updrs(X_y=False, device='cpu'):
     """ Loads and returns the Parkinsons Telemonitoring data set (regression)
 
     The data set was created by A. Tsanas and M. Little of the Oxford's
@@ -331,12 +331,12 @@ def load_parkinson_updrs(X_y=False):
     """
     df = pd.read_csv(os.path.join(os.path.dirname(os.path.realpath(__file__)), "data", "parkinson_total_UPDRS.txt"))
     if X_y:
-        return torch.from_numpy(df.values[:, :-1]).float(), torch.from_numpy(df.values[:, -1]).float()
+        return torch.from_numpy(df.values[:, :-1]).float().to(device), torch.from_numpy(df.values[:, -1]).float().to(device)
     else:
         return df
 
 
-def load_ld50(X_y=False):
+def load_ld50(X_y=False, device='cpu'):
     """ Loads and returns the LD50 data set(regression)
 
     The data set consists in predicting the median amount of compound
@@ -365,12 +365,12 @@ def load_ld50(X_y=False):
     """
     df = pd.read_csv(os.path.join(os.path.dirname(os.path.realpath(__file__)), "data", "ld50.txt"))
     if X_y:
-        return torch.from_numpy(df.values[:, :-1]).float(), torch.from_numpy(df.values[:, -1]).float()
+        return torch.from_numpy(df.values[:, :-1]).float().to(device), torch.from_numpy(df.values[:, -1]).float().to(device)
     else:
         return df
 
 
-def load_ppb(X_y=False):
+def load_ppb(X_y=False, device='cpu'):
     """ Loads and returns the PPB data set(regression)
 
     The data set consists in predicting the percentage of the initial
@@ -399,12 +399,12 @@ def load_ppb(X_y=False):
     """
     df = pd.read_csv(os.path.join(os.path.dirname(os.path.realpath(__file__)), "data", "ppb.txt"))
     if X_y:
-        return torch.from_numpy(df.values[:, :-1]).float(), torch.from_numpy(df.values[:, -1]).float()
+        return torch.from_numpy(df.values[:, :-1]).float().to(device), torch.from_numpy(df.values[:, -1]).float().to(device)
     else:
         return df
 
 
-def load_bioav(X_y=False):
+def load_bioav(X_y=False, device='cpu'):
     """ Loads and returns the Oral Bioavailability data set (regression)
 
     The data set consists in predicting the value of the percentage of
@@ -435,6 +435,6 @@ def load_bioav(X_y=False):
     """
     df = pd.read_csv(os.path.join(os.path.dirname(os.path.realpath(__file__)), "data", "bioavailability.txt"))
     if X_y:
-        return torch.from_numpy(df.values[:, :-1]).float(), torch.from_numpy(df.values[:, -1]).float()
+        return torch.from_numpy(df.values[:, :-1]).float().to(device), torch.from_numpy(df.values[:, -1]).float().to(device)
     else:
         return df

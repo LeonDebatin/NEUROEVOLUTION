@@ -1,3 +1,5 @@
+import sys
+
 import torch
 from math import prod
 from copy import deepcopy
@@ -70,7 +72,9 @@ class Tree(Solution):
             sol_copy.fit = None
         else:
             sol_copy.fit = self.fit.clone()
-        if hasattr(self, 'test_fit'):
+        if self.test_fit is None:
+            sol_copy.test_fit = None
+        else:
             sol_copy.test_fit = self.test_fit.clone()
 
         return sol_copy
@@ -400,6 +404,8 @@ class Tree(Solution):
         # Definitions
         def _nao_prod(x):
             return 5 * prod(x)
+        def _gs_operators(x):
+            return 10 * prod(x)
         complexity = {
             'cte': 2,
             'feature': 3,
@@ -411,6 +417,8 @@ class Tree(Solution):
             'cos': _nao_prod,
             'log': _nao_prod,
             'exp': _nao_prod,
+            'tanh': _gs_operators,
+            'lf': _gs_operators,
         }
         # Assess complexity
         if repr_ is None: repr_ = self.repr_
@@ -434,7 +442,8 @@ class Tree(Solution):
             while len(apply_stack[-1]) == apply_stack[-1][0].arity + 1:
                 complexity_ = complexity[apply_stack[-1][0].name]
                 terminals = [complexity[t] if isinstance(t, str) else t for t in apply_stack[-1][1:]]
-                intermediate_result = complexity_(terminals)
+                c = complexity_(terminals)
+                intermediate_result = c if c < sys.maxsize else sys.maxsize
                 if len(apply_stack) != 1:
                     apply_stack.pop()
                     apply_stack[-1].append(intermediate_result)

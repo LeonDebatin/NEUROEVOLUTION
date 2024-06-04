@@ -52,6 +52,7 @@ class Solution:
         self.repr_ = repr_
         self.valid = None
         self.fit = None
+        self.test_fit = None
 
     def __len__(self):
         return len(self.repr_)
@@ -77,8 +78,8 @@ class Solution:
             sol_copy.valid = self.valid
         if hasattr(self, 'fit'):
             sol_copy.fit = self.fit.clone()
-        if hasattr(self, 'test_fit'):
-            sol_copy.val_fit = self.val_fit.clone()
+        if self.test_fit is not None:
+            sol_copy.test_fit = self.test_fit.clone()
 
         return sol_copy
 
