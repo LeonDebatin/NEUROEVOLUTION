@@ -1,9 +1,0 @@
-digraph Tree {
-node [shape=box, style="filled, rounded", color="black", fontname="helvetica"] ;
-edge [fontname="helvetica"] ;
-0 [label=<milk_kg_day &le; -0.511<br/>squared_error = 0.004<br/>samples = 226<br/>value = 4.889>, fillcolor="#f7d7c1"] ;
-1 [label=<squared_error = 0.004<br/>samples = 71<br/>value = 4.924>, fillcolor="#e58139"] ;
-0 -> 1 [labeldistance=2.5, labelangle=45, headlabel="True"] ;
-2 [label=<squared_error = 0.004<br/>samples = 155<br/>value = 4.873>, fillcolor="#ffffff"] ;
-0 -> 2 [labeldistance=2.5, labelangle=-45, headlabel="False"] ;
-}

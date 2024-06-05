@@ -51,23 +51,14 @@ def get_score(y, y_pred):
 def cv_logger_init(path):
     with open(path, 'w', newline='\n') as csvfile:
                 w = csv.writer(csvfile, delimiter=';')
-                w.writerow(['id']+['fold']+ ['val_score'])
+                w.writerow(['id']+['fold']+ ['val_score']+ ['representation'])
 
 
-def cv_logger_append(path, id, fold , val_score):
+def cv_logger_append(path, id, fold , val_score, representation):
     with open(path, 'a', newline='\n') as csvfile:
-                w = csv.writer(csvfile, delimiter=';')
-                w.writerow([id]+[fold]+[val_score])
+        w = csv.writer(csvfile, delimiter=';')
+        w.writerow([id]+[fold]+[val_score]+[representation])
                 
-def train_logger_init(path):
-    with open(path, 'w', newline='\n') as csvfile:
-                w = csv.writer(csvfile, delimiter=';')
-                w.writerow(['id']+['epoch']+ ['train_score'])
-                
-def train_logger_append(path, id, epoch, train_score, val_score):
-    with open(path, 'a', newline='\n') as csvfile:
-                w = csv.writer(csvfile, delimiter=';')
-                w.writerow([id]+[epoch]+[train_score]+[val_score])
 
 
 def save_best_params(path, best_params):
@@ -79,12 +70,3 @@ def load_best_params(path):
         best_params = pickle.load(handle)
     return best_params
 
-def get_selection_method(selection_method):
-    if selection_method == 'tournament':
-        return prm_tournament(pressure=5)
-    elif selection_method == 'roulette_wheel':
-        return prm_roulette_wheel()
-    elif selection_method == 'rank_selection':
-        return prm_rank_selection()
-    else:
-        raise ValueError('Invalid selection method')
