@@ -68,6 +68,30 @@ def prm_tournament(pressure):
 
     return tournament
 
+
+######################################################
+def prm_double_tournament(pressure1, pressure2):
+
+    def tournament(pop, min_):
+
+        # Computes tournament pool size with respect to the population
+        pool_size = math.ceil(len(pop) * pressure1)
+        # Gets random indices of the individuals
+        indices = torch.randint(low=0, high=len(pop), size=(pool_size, ))
+        # Returns the best individual in the pool
+        return indices[torch.argmin(pop.fit[indices])] if min_ else indices[torch.argmax(pop.fit[indices])]
+    
+    def double_tournament(pop, min_):
+        pool_size2 = math.ceil(len(pop) * pressure2)
+        pop2 = torch.empty(0, dtype=torch.int32)
+        while pool_size2 > len(pop2):
+            pop2 = torch.cat((pop2, tournament(pop, min_).unsqueeze(0)), dim=0)
+        indices = torch.randint(low=0, high=len(pop), size=(pool_size2, ))
+        return indices[torch.argmin(pop.fit[indices])] if min_ else indices[torch.argmax(pop.fit[indices])]
+        
+    return double_tournament
+################################################################################################################
+
 def prm_roulette_wheel():
 
     def roulette_wheel(pop, min_):

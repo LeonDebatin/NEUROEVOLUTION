@@ -29,8 +29,11 @@ def clipp(X_train, X_test, multiplier=2):
     IQR = Q3 - Q1
     lower_bound = Q1 - (multiplier * IQR)
     upper_bound = Q3 + (multiplier * IQR)
-    X_train[columns_to_clip] = X_train[columns_to_clip].clip(lower=lower_bound, upper=upper_bound, axis=1)
-    X_test[columns_to_clip] = X_test[columns_to_clip].clip(lower=lower_bound, upper=upper_bound, axis=1)
+    
+    X_train_clipped = X_train.copy()
+    X_test_clipped = X_test.copy()
+    X_train_clipped[columns_to_clip] = X_train_clipped[columns_to_clip].clip(lower=lower_bound, upper=upper_bound, axis=1)
+    X_test_clipped[columns_to_clip] = X_test_clipped[columns_to_clip].clip(lower=lower_bound, upper=upper_bound, axis=1)
     
     return X_train, X_test
 

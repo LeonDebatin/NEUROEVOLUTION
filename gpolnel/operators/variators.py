@@ -9,7 +9,6 @@ implemented in this library.
 
 import copy
 import random
-
 import torch
 import numpy as np
 
@@ -421,6 +420,15 @@ def nn_xo(p1, p2):
     #
     # Implement the NN crossover here
     #
+    factor = random.uniform(0, 0.5)
+    for i in range(len(p1[0])):
+        for j in range(len(p1[0][i])):
+            for k in range(len(p1[0][i][j])):
+                p1[0][i][j][k] = factor * p1[0][i][j][k] + (1-factor) * p2[0][i][j][k]
+                p2[0][i][j][k] = (1-factor) * p1[0][i][j][k] + factor * p2[0][i][j][k]
+    
+    
+    
     return p1, p2
 
 
@@ -430,6 +438,9 @@ def prm_nn_mtn(ms, sspace):
         #
         # Implement the NN mutator here
         #
+        for i in range(len(repr_[0])):
+            repr_[0][i] = repr_[0][i] + torch.normal(mean=0, std=ms, size=(repr_[0][i].shape[0], repr_[0][i].shape[1]))
+        
         return repr_
     return nn_mtn
 

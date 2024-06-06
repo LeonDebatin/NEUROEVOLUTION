@@ -1,7 +1,0 @@
-INFO:IP-SML,GeneticAlgorithm,1:GPOL,1,0,0,3,tensor(0.5671),tensor(0.5166, dtype=torch.float64)
-INFO:IP-SML,GeneticAlgorithm,1:GPOL,1,1,0.4940171241760254,3,tensor(0.5671),tensor(0.5166, dtype=torch.float64)
-INFO:IP-SML,GeneticAlgorithm,1:GPOL,1,2,0.3588681221008301,3,tensor(0.2231),tensor(0.2212, dtype=torch.float64)
-INFO:IP-SML,GeneticAlgorithm,1:GPOL,1,3,0.3895699977874756,1,tensor(0.1034),tensor(0.1004, dtype=torch.float64)
-INFO:IP-SML,GeneticAlgorithm,1:GPOL,1,4,0.34599757194519043,1,tensor(0.1034),tensor(0.1004, dtype=torch.float64)
-INFO:IP-SML,GeneticAlgorithm,1:GPOL,1,5,0.3654463291168213,1,tensor(0.0653),tensor(0.0616, dtype=torch.float64)
-INFO:IP-SML,GeneticAlgorithm,1:GPOL,1,6,0.3461904525756836,1,tensor(0.0653),tensor(0.0616, dtype=torch.float64)
