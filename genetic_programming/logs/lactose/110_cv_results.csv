@@ -1,0 +1,11 @@
+id;fold;val_score;representation
+110;0;tensor(0.9095);[div, div, 5, tensor(-0.0007), tensor(0.2509)]
+110;1;tensor(0.9072);[div, div, 5, tensor(-0.0007), tensor(0.2509)]
+110;2;tensor(0.9096);[div, div, 5, tensor(-0.0007), tensor(0.2509)]
+110;3;tensor(0.9119);[div, div, 5, tensor(-0.0007), tensor(0.2509)]
+110;4;tensor(0.9113);[div, div, 5, tensor(-0.0007), tensor(0.2509)]
+110;5;tensor(0.9089);[div, div, 5, tensor(-0.0007), tensor(0.2509)]
+110;6;tensor(0.9093);[div, div, 5, tensor(-0.0007), tensor(0.2509)]
+110;7;tensor(0.9112);[div, div, 5, tensor(-0.0007), tensor(0.2509)]
+110;8;tensor(0.9098);[div, div, 5, tensor(-0.0007), tensor(0.2509)]
+110;9;tensor(0.9068);[div, div, 5, tensor(-0.0007), tensor(0.2509)]

@@ -1,0 +1,11 @@
+id;fold;val_score;representation
+73;0;tensor(16.7067);[add, sub, sub, sub, 2, 5, add, 8, 9, add, sub, 2, 11, sub, 9, 8, mul, tensor(2.5000), tanh, sub, 4, 5]
+73;1;tensor(17.2502);[add, sub, sub, sub, 2, 5, add, 8, 9, add, sub, 2, 11, sub, 9, 8, mul, tensor(2.5000), tanh, sub, 4, 5]
+73;2;tensor(16.4220);[add, sub, sub, sub, 2, 5, add, 8, 9, add, sub, 2, 11, sub, 9, 8, mul, tensor(2.5000), tanh, sub, 4, 5]
+73;3;tensor(16.6252);[add, sub, sub, sub, 2, 5, add, 8, 9, add, sub, 2, 11, sub, 9, 8, mul, tensor(2.5000), tanh, sub, 4, 5]
+73;4;tensor(16.0800);[add, sub, sub, sub, 2, 5, add, 8, 9, add, sub, 2, 11, sub, 9, 8, mul, tensor(2.5000), tanh, sub, 4, 5]
+73;5;tensor(16.0006);[add, sub, sub, sub, 2, 5, add, 8, 9, add, sub, 2, 11, sub, 9, 8, mul, tensor(2.5000), tanh, sub, 4, 5]
+73;6;tensor(16.9802);[add, sub, sub, sub, 2, 5, add, 8, 9, add, sub, 2, 11, sub, 9, 8, mul, tensor(2.5000), tanh, sub, 4, 5]
+73;7;tensor(16.8282);[add, sub, sub, sub, 2, 5, add, 8, 9, add, sub, 2, 11, sub, 9, 8, mul, tensor(2.5000), tanh, sub, 4, 5]
+73;8;tensor(16.2575);[add, sub, sub, sub, 2, 5, add, 8, 9, add, sub, 2, 11, sub, 9, 8, mul, tensor(2.5000), tanh, sub, 4, 5]
+73;9;tensor(17.2007);[add, sub, sub, sub, 2, 5, add, 8, 9, add, sub, 2, 11, sub, 9, 8, mul, tensor(2.5000), tanh, sub, 4, 5]

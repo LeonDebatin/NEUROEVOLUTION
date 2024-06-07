@@ -1,0 +1,11 @@
+id;fold;val_score;representation
+17;0;tensor(0.6799);[add, add, add, tensor(-0.4275), 9, div, 3, 1, mul, tensor(4.), tanh, div, 4, 7]
+17;1;tensor(0.6451);[add, add, add, tensor(-0.4275), 9, div, 3, 1, mul, tensor(4.), tanh, div, 4, 7]
+17;2;tensor(0.6764);[add, add, add, tensor(-0.4275), 9, div, 3, 1, mul, tensor(4.), tanh, div, 4, 7]
+17;3;tensor(0.6332);[add, add, add, tensor(-0.4275), 9, div, 3, 1, mul, tensor(4.), tanh, div, 4, 7]
+17;4;tensor(0.6750);[add, add, add, tensor(-0.4275), 9, div, 3, 1, mul, tensor(4.), tanh, div, 4, 7]
+17;5;tensor(0.6817);[add, add, add, tensor(-0.4275), 9, div, 3, 1, mul, tensor(4.), tanh, div, 4, 7]
+17;6;tensor(0.6731);[add, add, add, tensor(-0.4275), 9, div, 3, 1, mul, tensor(4.), tanh, div, 4, 7]
+17;7;tensor(0.6407);[add, add, add, tensor(-0.4275), 9, div, 3, 1, mul, tensor(4.), tanh, div, 4, 7]
+17;8;tensor(0.6721);[add, add, add, tensor(-0.4275), 9, div, 3, 1, mul, tensor(4.), tanh, div, 4, 7]
+17;9;tensor(0.6585);[add, add, add, tensor(-0.4275), 9, div, 3, 1, mul, tensor(4.), tanh, div, 4, 7]

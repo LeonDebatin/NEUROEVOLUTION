@@ -1,0 +1,11 @@
+id;fold;val_score;representation
+53;0;tensor(9223372036854775807);[add, mul, lf, sub, div, 5, 8, 2, add, mul, sub, 0, 3, 0, mul, tensor(4.), tanh, mul, 11, 9, mul, sub, tensor([1.]), lf, sub, div, 5, 8, 2, add, sub, 2, 1, mul, tensor(5.), tanh, div, 10, 2]
+53;1;tensor(9223372036854775807);[add, mul, lf, sub, div, 5, 8, 2, add, mul, sub, 3, 7, 6, mul, tensor(4.), tanh, mul, 11, 9, mul, sub, tensor([1.]), lf, sub, div, 5, 8, 2, add, sub, 1, tensor(-0.1361), mul, tensor(5.), tanh, div, 10, 2]
+53;2;tensor(9223372036854775807);[add, mul, lf, sub, div, 5, 8, 2, add, mul, sub, 0, 3, 0, mul, tensor(4.), tanh, mul, 11, 9, mul, sub, tensor([1.]), lf, sub, div, 5, 8, 2, add, sub, 1, 0, mul, tensor(5.), tanh, mul, 9, 5]
+53;3;tensor(9223372036854775807);[add, mul, lf, sub, div, 5, 8, 2, add, div, 1, 8, mul, tensor(4.), tanh, mul, 11, 9, mul, sub, tensor([1.]), lf, sub, div, 5, 8, 2, add, sub, 1, 0, mul, tensor(5.), tanh, mul, 9, 5]
+53;4;tensor(9223372036854775807);[add, mul, lf, sub, div, 5, 8, 2, add, mul, sub, 0, 3, 0, mul, tensor(4.), tanh, mul, 11, 9, mul, sub, tensor([1.]), lf, sub, div, 5, 8, 2, add, sub, 1, 0, mul, tensor(5.), tanh, mul, 9, 5]
+53;5;tensor(9223372036854775807);[add, mul, lf, sub, div, 5, 8, 2, add, mul, sub, 0, 3, 0, mul, tensor(4.), tanh, mul, 11, 9, mul, sub, tensor([1.]), lf, sub, div, 5, 8, 2, add, sub, 1, 0, mul, tensor(5.), tanh, mul, 9, 5]
+53;6;tensor(9223372036854775807);[add, mul, lf, sub, div, 5, 8, 2, add, mul, sub, 3, 7, 6, mul, tensor(4.), tanh, mul, 11, 9, mul, sub, tensor([1.]), lf, sub, div, 5, 8, 2, add, sub, 2, 1, mul, tensor(5.), tanh, div, 10, 2]
+53;7;tensor(9223372036854775807);[add, mul, lf, sub, div, 5, 8, 2, add, mul, sub, 3, 7, 6, mul, tensor(4.), tanh, mul, 11, 9, mul, sub, tensor([1.]), lf, sub, div, 5, 8, 2, add, sub, 1, tensor(-0.1361), mul, tensor(5.), tanh, div, 10, 2]
+53;8;tensor(9223372036854775807);[add, mul, lf, sub, div, 5, 8, 2, add, mul, sub, 0, 3, 0, mul, tensor(4.), tanh, mul, 11, 9, mul, sub, tensor([1.]), lf, sub, div, 5, 8, 2, add, sub, 1, 0, mul, tensor(5.), tanh, mul, 9, 5]
+53;9;tensor(9223372036854775807);[add, mul, lf, sub, div, 5, 8, 2, add, mul, sub, 3, 7, 6, mul, tensor(4.), tanh, mul, 11, 9, mul, sub, tensor([1.]), lf, sub, div, 5, 8, 2, add, mul, 1, 8, mul, tensor(5.), tanh, div, 5, 9]

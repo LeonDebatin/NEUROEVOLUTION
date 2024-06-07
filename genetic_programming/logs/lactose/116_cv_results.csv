@@ -1,0 +1,11 @@
+id;fold;val_score;representation
+116;0;tensor(2.2366);[5]
+116;1;tensor(2.2246);[5]
+116;2;tensor(2.1697);[div, 3, mul, 4, 5]
+116;3;tensor(2.2387);[5]
+116;4;tensor(2.2318);[5]
+116;5;tensor(2.2631);[5]
+116;6;tensor(2.2481);[5]
+116;7;tensor(2.2415);[5]
+116;8;tensor(2.2613);[5]
+116;9;tensor(2.2682);[5]

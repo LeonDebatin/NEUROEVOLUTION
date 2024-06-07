@@ -1,0 +1,11 @@
+id;fold;val_score;representation
+22;0;tensor(0.5152);[add, div, 5, 2, mul, tensor(4.7500), tanh, add, tensor(0.9833), 4]
+22;1;tensor(1.0187);[add, sub, 10, 8, mul, tensor(4.2500), tanh, add, 4, tensor(-0.5286)]
+22;2;tensor(0.6559);[add, div, div, 8, 1, div, tensor(-0.3359), 0, mul, tensor(4.2500), tanh, add, 4, tensor(-0.5286)]
+22;3;tensor(0.6582);[add, div, div, 8, 1, div, tensor(-0.3359), 0, mul, tensor(4.2500), tanh, add, 4, tensor(-0.5286)]
+22;4;tensor(0.6576);[add, div, div, 8, 1, div, tensor(-0.3359), 0, mul, tensor(4.2500), tanh, add, 4, tensor(-0.5286)]
+22;5;tensor(0.6546);[add, div, div, 8, 1, div, tensor(-0.3359), 0, mul, tensor(4.2500), tanh, add, 4, tensor(-0.5286)]
+22;6;tensor(0.6553);[add, div, div, 8, 1, div, tensor(-0.3359), 0, mul, tensor(4.2500), tanh, add, 4, tensor(-0.5286)]
+22;7;tensor(0.6567);[add, div, div, 8, 1, div, tensor(-0.3359), 0, mul, tensor(4.2500), tanh, add, 4, tensor(-0.5286)]
+22;8;tensor(0.6543);[add, div, div, 8, 1, div, tensor(-0.3359), 0, mul, tensor(4.2500), tanh, add, 4, tensor(-0.5286)]
+22;9;tensor(0.6433);[add, sub, 0, 0, mul, tensor(4.2500), tanh, add, 4, tensor(-0.5286)]
