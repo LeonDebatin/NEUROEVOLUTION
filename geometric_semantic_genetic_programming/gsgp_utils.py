@@ -29,7 +29,7 @@ import numpy as np
 #_evaluate_individual_ffunction
 
 
-def gp_train(dl_train, dl_val, ps, n_iter, initializer, sspace, selection_method, mutation_method, mutation_prob, xo_prob, xo_method, has_elitism, allow_reproduction, log_path, ffunction, seed, device):
+def gsgp_train(dl_train, dl_val, ps, n_iter, initializer, sspace, selection_method, mutation_method, mutation_prob, xo_prob, xo_method, has_elitism, allow_reproduction, log_path, ffunction, seed, device):
     
     pi_sml = SML(
         sspace=sspace,
@@ -60,7 +60,7 @@ def gp_train(dl_train, dl_val, ps, n_iter, initializer, sspace, selection_method
     return mheuristic
 
 
-def gp_cross_validation(X, y, batch_size, shuffle, kfold, initializer, ps, n_iter,  sspace,  selection_method, mutation_prob, mutation_method, xo_prob, xo_method, has_elitism, allow_reproduction,log_path_cv, log_path_train, ffunction, seed,  device, id=None):
+def gsgp_cross_validation(X, y, batch_size, shuffle, kfold, initializer, ps, n_iter,  sspace,  selection_method, mutation_prob, mutation_method, xo_prob, xo_method, has_elitism, allow_reproduction,log_path_cv, log_path_train, ffunction, seed,  device, id=None):
     results = []
     
     cv_logger_init(log_path_cv)
@@ -78,7 +78,7 @@ def gp_cross_validation(X, y, batch_size, shuffle, kfold, initializer, ps, n_ite
         dl_train = DataLoader(ds_train, batch_size, shuffle)
         dl_val = DataLoader(ds_val, batch_size, shuffle)
 
-        m = gp_train(dl_train = dl_train, dl_val = dl_val, initializer=initializer, ps=ps, n_iter=n_iter, sspace = sspace, selection_method=selection_method, mutation_method=mutation_method, xo_method=xo_method, ffunction=ffunction, log_path= log_path_train,  mutation_prob=mutation_prob, xo_prob=xo_prob, has_elitism=has_elitism, allow_reproduction=allow_reproduction,  seed=seed,  device=device)
+        m = gsgp_train(dl_train = dl_train, dl_val = dl_val, initializer=initializer, ps=ps, n_iter=n_iter, sspace = sspace, selection_method=selection_method, mutation_method=mutation_method, xo_method=xo_method, ffunction=ffunction, log_path= log_path_train,  mutation_prob=mutation_prob, xo_prob=xo_prob, has_elitism=has_elitism, allow_reproduction=allow_reproduction,  seed=seed,  device=device)
         score = m.best_sol.fit
         results.append(score)
     
@@ -88,3 +88,4 @@ def gp_cross_validation(X, y, batch_size, shuffle, kfold, initializer, ps, n_ite
     print('cv_score:', avg_score)
     
     return avg_score
+

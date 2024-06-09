@@ -85,7 +85,7 @@ def ne_cross_validation(X, y, batch_size, shuffle, kfold, initializer, ps, n_ite
         score = m.best_sol.fit
         results.append(score)
     
-        cv_logger_append(log_path_cv, id, fold, score, m.best_sol.repr_)
+        cv_logger_append(log_path_cv, id, fold, score, 'rep')
         
     avg_score = np.mean(results)
     print('cv_score:', avg_score)

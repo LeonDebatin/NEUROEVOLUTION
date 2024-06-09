@@ -420,14 +420,23 @@ def nn_xo(p1, p2):
     #
     # Implement the NN crossover here
     #
+    
+    
+    # factor = random.uniform(0, 0.5)
+    # for i in range(len(p1[0])):
+    #     for j in range(len(p1[0][i])):
+    #         p1[0][i][j] = factor * p1[0][i][j] + (1-factor) * p2[0][i][j]
+    #         p2[0][i][j] = (1-factor) * p1[0][i][j] + factor * p2[0][i][j]
     factor = random.uniform(0, 0.5)
     for i in range(len(p1[0])):
-        for j in range(len(p1[0][i])):
-            for k in range(len(p1[0][i][j])):
-                p1[0][i][j][k] = factor * p1[0][i][j][k] + (1-factor) * p2[0][i][j][k]
-                p2[0][i][j][k] = (1-factor) * p1[0][i][j][k] + factor * p2[0][i][j][k]
+        
+        helper = copy.deepcopy(p1[0][i])
+        p1[0][i] = factor * p1[0][i] + (1-factor) * p2[0][i]
+        p2[0][i] = (1-factor) * helper + factor * p2[0][i]
     
-    
+        helper = copy.deepcopy(p1[1][i])
+        p1[1][i] = factor * p1[1][i] + (1-factor) * p2[1][i]
+        p2[1][i] = (1-factor) * helper + factor * p2[1][i]
     
     return p1, p2
 
@@ -435,11 +444,14 @@ def nn_xo(p1, p2):
 def prm_nn_mtn(ms, sspace):
     
     def nn_mtn(repr_):
-        #
-        # Implement the NN mutator here
-        #
+
+        #add gaussian noise to weights
         for i in range(len(repr_[0])):
             repr_[0][i] = repr_[0][i] + torch.normal(mean=0, std=ms, size=(repr_[0][i].shape[0], repr_[0][i].shape[1]))
+        
+        #add gaussian nosie to biases
+        repr_[1] = repr_[1] + torch.normal(mean=0, std=ms, size=(1, len(repr_[1]))).tolist()
+        
         
         return repr_
     return nn_mtn
