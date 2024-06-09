@@ -1,0 +1,4 @@
+id;fold;val_score;representation
+;0;tensor(0.5748, grad_fn=<SqrtBackward0>);repr
+;1;tensor(0.4476, grad_fn=<SqrtBackward0>);repr
+;2;tensor(0.5908, grad_fn=<SqrtBackward0>);repr
