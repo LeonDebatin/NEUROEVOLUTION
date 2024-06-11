@@ -7,7 +7,7 @@ parent_dir = os.path.abspath(os.path.join(os.path.dirname('../NEUROEVOLUTION'), 
 if parent_dir not in sys.path:
     sys.path.insert(0, parent_dir)
     
-from NEUROEVOLUTION.utils import root_mean_squared_error
+from NEUROEVOLUTION.utils import root_mean_squared_error, drop_features, kfold, load_best_params
 
 import pandas as pd
 import pickle
@@ -17,6 +17,7 @@ import sys
 import csv
 import numpy as np
 
+from genetic_programming.utils import gp_crossover
 
 
 
@@ -47,7 +48,35 @@ def eval_pred(y_true, y_pred):
     return mse,rmse, mae, mape, r2, corr
 
 
-def main(file_path_X_test, file_path_y_test):
+def main(file_path_X, file_path_y, target):
+    X = pd.read_csv(file_path_X)
+    X = drop_features(X)
+    y = pd.read_csv(file_path_y)
+    
+    
+    #total_batches = 1
+    batch_size = X.shape[0]
+    shuffle = True
+    ffunction = Ffunctions('rmse')
+    gp_best_params = load_best_params('genetic_programming/best_params/' + f'{target}' + '-best_params_final.pkl')
+    
+    gp_score = gp_crossover(X, y, batch_size, shuffle, kfold, gp_best_params['initializer'], gp_best_params['ps'], gp_best_params['n_iter'],  gp_best_params['sspace'],  gp_best_params['selection_method'], gp_best_params['mutation_prob, mutation_method, xo_prob, xo_method, has_elitism, allow_reproduction,log_path_cv, log_path_train, ffunction, seed,  device, id=None)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def mainxx(file_path_X_test, file_path_y_test):
     
     #Preprocessing
     print("Load and prepare Test set")
@@ -117,4 +146,5 @@ def main(file_path_X_test, file_path_y_test):
 if __name__ == "__main__":
     file_path_X = sys.argv[1]
     file_path_y = sys.argv[2]
+    target = sys.argv[3]
     main(file_path_X, file_path_y)

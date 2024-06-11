@@ -3,9 +3,9 @@ id;fold;val_score;representation
 ;1;tensor(0.0629, grad_fn=<SqrtBackward0>);repr
 ;2;tensor(0.0745, grad_fn=<SqrtBackward0>);repr
 ;3;tensor(0.0850, grad_fn=<SqrtBackward0>);repr
-;4;tensor(0.0871, grad_fn=<SqrtBackward0>);repr
-;5;tensor(0.0846, grad_fn=<SqrtBackward0>);repr
-;6;tensor(0.0652, grad_fn=<SqrtBackward0>);repr
-;7;tensor(0.1011, grad_fn=<SqrtBackward0>);repr
-;8;tensor(0.0883, grad_fn=<SqrtBackward0>);repr
-;9;tensor(0.0875, grad_fn=<SqrtBackward0>);repr
+;4;tensor(0.0884, grad_fn=<SqrtBackward0>);repr
+;5;tensor(0.0789, grad_fn=<SqrtBackward0>);repr
+;6;tensor(0.0648, grad_fn=<SqrtBackward0>);repr
+;7;tensor(0.1015, grad_fn=<SqrtBackward0>);repr
+;8;tensor(0.0914, grad_fn=<SqrtBackward0>);repr
+;9;tensor(0.1042, grad_fn=<SqrtBackward0>);repr

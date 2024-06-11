@@ -1,0 +1,11 @@
+id;fold;val_score;representation
+19;0;tensor(0.1485);[mul, tensor(-9.5589), tensor(-0.3491)]
+19;1;tensor(0.2169);[div, add, add, add, 2, div, 8, 6, div, 8, 6, add, div, add, 5, add, div, 2, 6, 2, 4, add, 6, 8, div, add, add, add, add, div, 6, 1, div, 6, 1, add, div, 6, 1, div, 6, 1, add, div, 6, 1, add, div, 6, 1, div, 6, 1, add, div, 9, 2, add, 2, 8, div, add, add, add, add, 2, 1, 5, 5, add, add, add, 2, 1, 5, 2, add, add, 6, 1, add, 6, add, 6, add, 6, 8]
+19;2;tensor(0.3255);[add, div, div, tensor(9.0662), add, 4, 1, div, div, 6, 1, div, 6, 2, div, div, div, tensor(9.0662), div, div, div, 6, 2, 6, div, 2, 2, div, div, div, 6, 2, add, 4, 1, add, 4, 1, div, 6, 2]
+19;3;tensor(0.1426);[add, div, add, tensor(2.7153), div, div, 8, 1, div, div, add, 6, 8, 8, 8, add, 6, div, add, tensor(2.7153), div, div, 0, 1, div, 0, 1, add, 6, div, div, 8, 1, 1, add, tensor(2.7153), div, div, div, div, 0, 1, div, div, 8, 1, 8, 1, div, 6, div, div, 0, 1, div, div, 8, 1, 8]
+19;4;tensor(0.1507);[tensor(3.3341)]
+19;5;tensor(0.1657);[add, add, div, div, tensor(9.0662), 1, div, tensor(9.0662), add, 4, add, tensor(9.0662), 1, div, div, tensor(9.0662), 1, div, tensor(9.0662), add, tensor(9.0662), 1, div, div, tensor(9.0662), 1, div, tensor(9.0662), add, 4, add, tensor(9.0662), 1]
+19;6;tensor(0.1492);[add, div, add, add, add, tensor(-6.9152), add, tensor(-6.9152), 5, add, add, add, tensor(-6.9152), 5, 5, add, add, tensor(-6.9152), 5, 5, add, add, add, add, tensor(-6.9152), 5, 5, add, add, tensor(-6.9152), 5, 5, add, add, tensor(-6.9152), 5, 5, 1, tensor(3.3911)]
+19;7;tensor(0.1603);[add, div, mul, add, mul, div, mul, 2, tensor(-0.1281), 3, mul, 4, tensor(9.0662), tensor(3.7961), mul, 2, tensor(-0.1281), 4, add, mul, div, mul, 2, tensor(-0.1281), 3, mul, 4, tensor(9.0662), tensor(3.7961)]
+19;8;tensor(0.1470);[add, div, add, tensor(7.6704), add, tensor(5.4075), add, tensor(5.4075), div, 3, 0, div, 3, 0, tensor(2.2501)]
+19;9;tensor(0.1497);[add, div, add, div, 6, div, add, mul, tensor(0.6462), 6, mul, tensor(0.6462), 6, mul, tensor(0.6462), 6, mul, tensor(0.6462), 6, mul, tensor(0.6462), 6, div, 6, mul, tensor(0.6462), 6]

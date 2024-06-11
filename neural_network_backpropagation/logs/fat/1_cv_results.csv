@@ -2,3 +2,10 @@ id;fold;val_score;representation
 ;0;tensor(0.5748, grad_fn=<SqrtBackward0>);repr
 ;1;tensor(0.4476, grad_fn=<SqrtBackward0>);repr
 ;2;tensor(0.5908, grad_fn=<SqrtBackward0>);repr
+;3;tensor(0.5927, grad_fn=<SqrtBackward0>);repr
+;4;tensor(0.5387, grad_fn=<SqrtBackward0>);repr
+;5;tensor(0.4896, grad_fn=<SqrtBackward0>);repr
+;6;tensor(0.4684, grad_fn=<SqrtBackward0>);repr
+;7;tensor(0.4825, grad_fn=<SqrtBackward0>);repr
+;8;tensor(0.3941, grad_fn=<SqrtBackward0>);repr
+;9;tensor(0.5372, grad_fn=<SqrtBackward0>);repr

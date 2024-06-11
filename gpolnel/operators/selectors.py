@@ -69,26 +69,36 @@ def prm_tournament(pressure):
     return tournament
 
 
-######################################################
+
+
+##############################################
 def prm_double_tournament(pressure1, pressure2):
-
+    """ Implements double tournament selection algorithm
+    we start with using the tournament function and select based on the fitness as many individuals until pool_sze 2 based on
+    pressure2 is fullfilled. Then we select the individual with the shortest length of the selected individuals, since we want to
+    have less complex Regression Models to avoid overfitting and have better interpretability."""
+    
     def tournament(pop, min_):
-
-        # Computes tournament pool size with respect to the population
         pool_size = math.ceil(len(pop) * pressure1)
-        # Gets random indices of the individuals
         indices = torch.randint(low=0, high=len(pop), size=(pool_size, ))
-        # Returns the best individual in the pool
         return indices[torch.argmin(pop.fit[indices])] if min_ else indices[torch.argmax(pop.fit[indices])]
     
     def double_tournament(pop, min_):
         pool_size2 = math.ceil(len(pop) * pressure2)
-        pop2 = torch.empty(0, dtype=torch.int32)
-        while pool_size2 > len(pop2):
-            pop2 = torch.cat((pop2, tournament(pop, min_).unsqueeze(0)), dim=0)
-        indices = torch.randint(low=0, high=len(pop), size=(pool_size2, ))
-        return indices[torch.argmin(pop.fit[indices])] if min_ else indices[torch.argmax(pop.fit[indices])]
+        pop2_indices = []
+
+        while len(pop2_indices) < pool_size2:
+            winner_index = tournament(pop, min_).item()
+            pop2_indices.append(winner_index)
+
+        pop2_indices = torch.tensor(pop2_indices, dtype=torch.int32)
         
+        lengths = [len(pop.individuals[i].repr_) for i in pop2_indices]
+
+        min_length_index = torch.argmin(torch.tensor(lengths)).item()
+
+        return pop2_indices[min_length_index]
+
     return double_tournament
 ################################################################################################################
 

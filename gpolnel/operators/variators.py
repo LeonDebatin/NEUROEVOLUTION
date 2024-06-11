@@ -422,21 +422,16 @@ def nn_xo(p1, p2):
     #
     
     
-    # factor = random.uniform(0, 0.5)
-    # for i in range(len(p1[0])):
-    #     for j in range(len(p1[0][i])):
-    #         p1[0][i][j] = factor * p1[0][i][j] + (1-factor) * p2[0][i][j]
-    #         p2[0][i][j] = (1-factor) * p1[0][i][j] + factor * p2[0][i][j]
+
     factor = random.uniform(0, 0.5)
     for i in range(len(p1[0])):
+        help1, help2 = p1[0][i], p2[0][i]
+        p1[0][i] = factor * help1 + (1 - factor) * help2
+        p2[0][i] = (1 - factor) * help1 + factor * help2
         
-        helper = copy.deepcopy(p1[0][i])
-        p1[0][i] = factor * p1[0][i] + (1-factor) * p2[0][i]
-        p2[0][i] = (1-factor) * helper + factor * p2[0][i]
-    
-        helper = copy.deepcopy(p1[1][i])
-        p1[1][i] = factor * p1[1][i] + (1-factor) * p2[1][i]
-        p2[1][i] = (1-factor) * helper + factor * p2[1][i]
+        help1, help2 = p1[1][i], p2[1][i]
+        p1[1][i] = factor * help1 + (1 - factor) * help2
+        p2[1][i] = (1 - factor) * help1 + factor * help2
     
     return p1, p2
 
@@ -450,7 +445,8 @@ def prm_nn_mtn(ms, sspace):
             repr_[0][i] = repr_[0][i] + torch.normal(mean=0, std=ms, size=(repr_[0][i].shape[0], repr_[0][i].shape[1]))
         
         #add gaussian nosie to biases
-        repr_[1] = repr_[1] + torch.normal(mean=0, std=ms, size=(1, len(repr_[1]))).tolist()
+        #print(repr_[1])
+        repr_[1][0] = repr_[1][0] + torch.normal(mean=0, std=ms, size=(1, len(repr_[1][0])))
         
         
         return repr_

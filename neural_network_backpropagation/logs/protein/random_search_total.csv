@@ -1,1 +1,481 @@
 id;model;optimizer;learning_rate;l2;batch_size;n_epochs;cv_score
+1;"Sequential(
+  (0): Linear(in_features=12, out_features=10, bias=True)
+  (sigmoid1): Sigmoid()
+  (output): Linear(in_features=10, out_features=1, bias=True)
+)";Adadelta;0.1;0.1;10;100;0.14021464
+2;"Sequential(
+  (0): Linear(in_features=12, out_features=8, bias=True)
+  (output): Linear(in_features=8, out_features=1, bias=True)
+)";ASGD;0.0001;0.1;5;75;2.74589
+3;"Sequential(
+  (0): Linear(in_features=12, out_features=2, bias=True)
+  (relu1): ReLU()
+  (output): Linear(in_features=2, out_features=1, bias=True)
+)";RMSprop;0.0001;0.1;25;100;3.0011425
+4;"Sequential(
+  (0): Linear(in_features=12, out_features=1, bias=True)
+  (relu1): ReLU()
+  (output): Linear(in_features=1, out_features=1, bias=True)
+)";Adadelta;0.1;0.1;20;75;1.9815218
+5;"Sequential(
+  (0): Linear(in_features=12, out_features=8, bias=True)
+  (output): Linear(in_features=8, out_features=1, bias=True)
+)";Adam;0.0001;0.01;10;500;0.13919349
+6;"Sequential(
+  (0): Linear(in_features=12, out_features=6, bias=True)
+  (output): Linear(in_features=6, out_features=1, bias=True)
+)";SGD;0.001;0.001;5;250;0.14028451
+7;"Sequential(
+  (0): Linear(in_features=12, out_features=7, bias=True)
+  (output): Linear(in_features=7, out_features=1, bias=True)
+)";Adadelta;0.1;0.01;25;50;1.5748205
+8;"Sequential(
+  (0): Linear(in_features=12, out_features=6, bias=True)
+  (sigmoid1): Sigmoid()
+  (output): Linear(in_features=6, out_features=1, bias=True)
+)";Adadelta;0.001;0.01;25;100;3.3125508
+9;"Sequential(
+  (0): Linear(in_features=12, out_features=1, bias=True)
+  (relu1): ReLU()
+  (output): Linear(in_features=1, out_features=1, bias=True)
+)";ASGD;0.1;0.0001;20;50;0.1476464
+10;"Sequential(
+  (0): Linear(in_features=12, out_features=1, bias=True)
+  (linear): Linear(in_features=1, out_features=4, bias=True)
+  (output): Linear(in_features=4, out_features=1, bias=True)
+)";Adadelta;0.001;0.0001;10;75;3.112824
+11;"Sequential(
+  (0): Linear(in_features=12, out_features=8, bias=True)
+  (linear): Linear(in_features=8, out_features=5, bias=True)
+  (output): Linear(in_features=5, out_features=1, bias=True)
+)";SGD;0.0001;0.0001;15;1000;0.15119466
+12;"Sequential(
+  (0): Linear(in_features=12, out_features=9, bias=True)
+  (relu1): ReLU()
+  (output): Linear(in_features=9, out_features=1, bias=True)
+)";RMSprop;0.1;0.0001;10;250;0.21497734
+13;"Sequential(
+  (0): Linear(in_features=12, out_features=9, bias=True)
+  (sigmoid1): Sigmoid()
+  (output): Linear(in_features=9, out_features=1, bias=True)
+)";Adam;0.01;0.0001;10;250;0.19276685
+14;"Sequential(
+  (0): Linear(in_features=12, out_features=6, bias=True)
+  (linear): Linear(in_features=6, out_features=8, bias=True)
+  (output): Linear(in_features=8, out_features=1, bias=True)
+)";Adadelta;0.001;0.0;25;50;3.371347
+15;"Sequential(
+  (0): Linear(in_features=12, out_features=5, bias=True)
+  (output): Linear(in_features=5, out_features=1, bias=True)
+)";RMSprop;0.0001;0.0;25;100;2.9584603
+16;"Sequential(
+  (0): Linear(in_features=12, out_features=4, bias=True)
+  (relu1): ReLU()
+  (output): Linear(in_features=4, out_features=1, bias=True)
+)";SGD;0.01;0.1;15;50;0.15480182
+17;"Sequential(
+  (0): Linear(in_features=12, out_features=9, bias=True)
+  (linear): Linear(in_features=9, out_features=3, bias=True)
+  (output): Linear(in_features=3, out_features=1, bias=True)
+)";Adadelta;0.01;0.001;15;75;2.6370485
+18;"Sequential(
+  (0): Linear(in_features=12, out_features=2, bias=True)
+  (sigmoid1): Sigmoid()
+  (output): Linear(in_features=2, out_features=1, bias=True)
+)";SGD;0.001;0.0001;20;75;1.7188323
+19;"Sequential(
+  (0): Linear(in_features=12, out_features=10, bias=True)
+  (output): Linear(in_features=10, out_features=1, bias=True)
+)";SGD;0.0001;0.1;10;25;3.205772
+20;"Sequential(
+  (0): Linear(in_features=12, out_features=9, bias=True)
+  (linear): Linear(in_features=9, out_features=7, bias=True)
+  (relu2): ReLU()
+  (output): Linear(in_features=7, out_features=1, bias=True)
+)";SGD;0.1;0.0;20;500;0.17589724
+21;"Sequential(
+  (0): Linear(in_features=12, out_features=10, bias=True)
+  (linear): Linear(in_features=10, out_features=6, bias=True)
+  (sigmoid2): Sigmoid()
+  (output): Linear(in_features=6, out_features=1, bias=True)
+)";Adam;0.01;0.0;20;50;0.1564672
+22;"Sequential(
+  (0): Linear(in_features=12, out_features=2, bias=True)
+  (sigmoid1): Sigmoid()
+  (output): Linear(in_features=2, out_features=1, bias=True)
+)";Adadelta;0.001;0.1;15;75;3.6034703
+23;"Sequential(
+  (0): Linear(in_features=12, out_features=9, bias=True)
+  (linear): Linear(in_features=9, out_features=1, bias=True)
+  (relu2): ReLU()
+  (output): Linear(in_features=1, out_features=1, bias=True)
+)";Adam;0.1;0.0001;5;1000;0.14858726
+24;"Sequential(
+  (0): Linear(in_features=12, out_features=1, bias=True)
+  (relu1): ReLU()
+  (output): Linear(in_features=1, out_features=1, bias=True)
+)";Adadelta;0.1;0.0;25;100;1.4195064
+25;"Sequential(
+  (0): Linear(in_features=12, out_features=5, bias=True)
+  (sigmoid1): Sigmoid()
+  (output): Linear(in_features=5, out_features=1, bias=True)
+)";RMSprop;0.1;0.1;20;25;0.3459111
+26;"Sequential(
+  (0): Linear(in_features=12, out_features=6, bias=True)
+  (output): Linear(in_features=6, out_features=1, bias=True)
+)";SGD;0.001;0.001;10;25;1.9727249
+27;"Sequential(
+  (0): Linear(in_features=12, out_features=6, bias=True)
+  (sigmoid1): Sigmoid()
+  (output): Linear(in_features=6, out_features=1, bias=True)
+)";Adam;0.001;0.0;25;25;1.9778379
+28;"Sequential(
+  (0): Linear(in_features=12, out_features=3, bias=True)
+  (output): Linear(in_features=3, out_features=1, bias=True)
+)";ASGD;0.01;0.01;10;1000;0.16582116
+29;"Sequential(
+  (0): Linear(in_features=12, out_features=6, bias=True)
+  (relu1): ReLU()
+  (output): Linear(in_features=6, out_features=1, bias=True)
+)";Adam;0.1;0.0;15;250;0.16502397
+30;"Sequential(
+  (0): Linear(in_features=12, out_features=1, bias=True)
+  (relu1): ReLU()
+  (output): Linear(in_features=1, out_features=1, bias=True)
+)";RMSprop;0.001;0.0;15;75;1.1089222
+31;"Sequential(
+  (0): Linear(in_features=12, out_features=10, bias=True)
+  (relu1): ReLU()
+  (output): Linear(in_features=10, out_features=1, bias=True)
+)";RMSprop;0.0001;0.01;25;75;2.7741208
+32;"Sequential(
+  (0): Linear(in_features=12, out_features=9, bias=True)
+  (sigmoid1): Sigmoid()
+  (output): Linear(in_features=9, out_features=1, bias=True)
+)";RMSprop;0.0001;0.0001;25;25;3.2675557
+33;"Sequential(
+  (0): Linear(in_features=12, out_features=2, bias=True)
+  (relu1): ReLU()
+  (output): Linear(in_features=2, out_features=1, bias=True)
+)";Adam;0.0001;0.0001;5;1000;0.21055262
+34;"Sequential(
+  (0): Linear(in_features=12, out_features=3, bias=True)
+  (sigmoid1): Sigmoid()
+  (output): Linear(in_features=3, out_features=1, bias=True)
+)";ASGD;0.001;0.001;20;25;2.7553115
+35;"Sequential(
+  (0): Linear(in_features=12, out_features=9, bias=True)
+  (linear): Linear(in_features=9, out_features=5, bias=True)
+  (output): Linear(in_features=5, out_features=1, bias=True)
+)";Adam;0.01;0.01;20;500;0.14719288
+36;"Sequential(
+  (0): Linear(in_features=12, out_features=1, bias=True)
+  (output): Linear(in_features=1, out_features=1, bias=True)
+)";Adadelta;0.01;0.001;5;75;2.2890165
+37;"Sequential(
+  (0): Linear(in_features=12, out_features=2, bias=True)
+  (output): Linear(in_features=2, out_features=1, bias=True)
+)";SGD;0.0001;0.0001;5;1000;0.13904426
+38;"Sequential(
+  (0): Linear(in_features=12, out_features=8, bias=True)
+  (sigmoid1): Sigmoid()
+  (output): Linear(in_features=8, out_features=1, bias=True)
+)";Adam;0.01;0.0;25;75;0.14381103
+39;"Sequential(
+  (0): Linear(in_features=12, out_features=2, bias=True)
+  (relu1): ReLU()
+  (output): Linear(in_features=2, out_features=1, bias=True)
+)";RMSprop;0.01;0.01;15;100;0.16664124
+40;"Sequential(
+  (0): Linear(in_features=12, out_features=6, bias=True)
+  (sigmoid1): Sigmoid()
+  (output): Linear(in_features=6, out_features=1, bias=True)
+)";SGD;0.01;0.0001;5;25;0.14435337
+41;"Sequential(
+  (0): Linear(in_features=12, out_features=10, bias=True)
+  (relu1): ReLU()
+  (output): Linear(in_features=10, out_features=1, bias=True)
+)";Adadelta;0.001;0.0001;25;75;3.3309464
+42;"Sequential(
+  (0): Linear(in_features=12, out_features=2, bias=True)
+  (linear): Linear(in_features=2, out_features=1, bias=True)
+  (sigmoid2): Sigmoid()
+  (output): Linear(in_features=1, out_features=1, bias=True)
+)";Adadelta;0.01;0.1;5;1000;0.14418766
+43;"Sequential(
+  (0): Linear(in_features=12, out_features=9, bias=True)
+  (relu1): ReLU()
+  (output): Linear(in_features=9, out_features=1, bias=True)
+)";Adam;0.001;0.1;5;50;0.15284991
+44;"Sequential(
+  (0): Linear(in_features=12, out_features=5, bias=True)
+  (linear): Linear(in_features=5, out_features=2, bias=True)
+  (output): Linear(in_features=2, out_features=1, bias=True)
+)";Adam;0.01;0.1;15;50;0.18035924
+45;"Sequential(
+  (0): Linear(in_features=12, out_features=1, bias=True)
+  (output): Linear(in_features=1, out_features=1, bias=True)
+)";Adam;0.001;0.0001;25;100;0.29117358
+46;"Sequential(
+  (0): Linear(in_features=12, out_features=1, bias=True)
+  (sigmoid1): Sigmoid()
+  (output): Linear(in_features=1, out_features=1, bias=True)
+)";RMSprop;0.1;0.01;10;250;0.25427556
+47;"Sequential(
+  (0): Linear(in_features=12, out_features=8, bias=True)
+  (sigmoid1): Sigmoid()
+  (output): Linear(in_features=8, out_features=1, bias=True)
+)";Adam;0.01;0.0;25;100;0.15327695
+48;"Sequential(
+  (0): Linear(in_features=12, out_features=10, bias=True)
+  (relu1): ReLU()
+  (output): Linear(in_features=10, out_features=1, bias=True)
+)";Adadelta;0.001;0.01;20;50;3.3542874
+49;"Sequential(
+  (0): Linear(in_features=12, out_features=7, bias=True)
+  (sigmoid1): Sigmoid()
+  (output): Linear(in_features=7, out_features=1, bias=True)
+)";Adadelta;0.001;0.0001;15;50;3.2493668
+50;"Sequential(
+  (0): Linear(in_features=12, out_features=9, bias=True)
+  (output): Linear(in_features=9, out_features=1, bias=True)
+)";SGD;0.001;0.001;15;100;0.14647469
+51;"Sequential(
+  (0): Linear(in_features=12, out_features=7, bias=True)
+  (linear): Linear(in_features=7, out_features=6, bias=True)
+  (output): Linear(in_features=6, out_features=1, bias=True)
+)";RMSprop;0.01;0.0;10;50;0.215871
+52;"Sequential(
+  (0): Linear(in_features=12, out_features=9, bias=True)
+  (relu1): ReLU()
+  (output): Linear(in_features=9, out_features=1, bias=True)
+)";SGD;0.001;0.01;5;500;0.14952362
+53;"Sequential(
+  (0): Linear(in_features=12, out_features=6, bias=True)
+  (linear): Linear(in_features=6, out_features=3, bias=True)
+  (output): Linear(in_features=3, out_features=1, bias=True)
+)";RMSprop;0.0001;0.0001;25;250;1.777166
+54;"Sequential(
+  (0): Linear(in_features=12, out_features=7, bias=True)
+  (relu1): ReLU()
+  (output): Linear(in_features=7, out_features=1, bias=True)
+)";Adadelta;0.0001;0.01;25;100;3.2939644
+55;"Sequential(
+  (0): Linear(in_features=12, out_features=9, bias=True)
+  (linear): Linear(in_features=9, out_features=3, bias=True)
+  (output): Linear(in_features=3, out_features=1, bias=True)
+)";RMSprop;0.0001;0.0;20;500;0.13848609
+56;"Sequential(
+  (0): Linear(in_features=12, out_features=2, bias=True)
+  (output): Linear(in_features=2, out_features=1, bias=True)
+)";Adadelta;0.0001;0.001;15;50;3.359714
+57;"Sequential(
+  (0): Linear(in_features=12, out_features=7, bias=True)
+  (output): Linear(in_features=7, out_features=1, bias=True)
+)";RMSprop;0.1;0.001;20;25;0.20228326
+58;"Sequential(
+  (0): Linear(in_features=12, out_features=9, bias=True)
+  (output): Linear(in_features=9, out_features=1, bias=True)
+)";SGD;0.01;0.0001;25;500;0.1410588
+59;"Sequential(
+  (0): Linear(in_features=12, out_features=4, bias=True)
+  (sigmoid1): Sigmoid()
+  (output): Linear(in_features=4, out_features=1, bias=True)
+)";RMSprop;0.001;0.1;5;50;0.14417562
+60;"Sequential(
+  (0): Linear(in_features=12, out_features=3, bias=True)
+  (relu1): ReLU()
+  (output): Linear(in_features=3, out_features=1, bias=True)
+)";RMSprop;0.01;0.1;15;100;0.19750777
+61;"Sequential(
+  (0): Linear(in_features=12, out_features=6, bias=True)
+  (sigmoid1): Sigmoid()
+  (output): Linear(in_features=6, out_features=1, bias=True)
+)";Adadelta;0.001;0.1;25;100;3.4197457
+62;"Sequential(
+  (0): Linear(in_features=12, out_features=2, bias=True)
+  (relu1): ReLU()
+  (output): Linear(in_features=2, out_features=1, bias=True)
+)";RMSprop;0.01;0.1;15;1000;0.17757466
+63;"Sequential(
+  (0): Linear(in_features=12, out_features=9, bias=True)
+  (linear): Linear(in_features=9, out_features=6, bias=True)
+  (sigmoid2): Sigmoid()
+  (output): Linear(in_features=6, out_features=1, bias=True)
+)";ASGD;0.01;0.0;5;75;0.1437773
+64;"Sequential(
+  (0): Linear(in_features=12, out_features=8, bias=True)
+  (sigmoid1): Sigmoid()
+  (output): Linear(in_features=8, out_features=1, bias=True)
+)";ASGD;0.01;0.0001;5;500;0.1481365
+65;"Sequential(
+  (0): Linear(in_features=12, out_features=2, bias=True)
+  (sigmoid1): Sigmoid()
+  (output): Linear(in_features=2, out_features=1, bias=True)
+)";ASGD;0.01;0.0001;20;500;0.13858967
+66;"Sequential(
+  (0): Linear(in_features=12, out_features=8, bias=True)
+  (output): Linear(in_features=8, out_features=1, bias=True)
+)";ASGD;0.01;0.0001;10;100;0.17276584
+67;"Sequential(
+  (0): Linear(in_features=12, out_features=4, bias=True)
+  (linear): Linear(in_features=4, out_features=6, bias=True)
+  (output): Linear(in_features=6, out_features=1, bias=True)
+)";RMSprop;0.1;0.0001;25;75;0.15678026
+68;"Sequential(
+  (0): Linear(in_features=12, out_features=2, bias=True)
+  (output): Linear(in_features=2, out_features=1, bias=True)
+)";ASGD;0.01;0.1;25;100;0.14722511
+69;"Sequential(
+  (0): Linear(in_features=12, out_features=5, bias=True)
+  (output): Linear(in_features=5, out_features=1, bias=True)
+)";SGD;0.0001;0.001;20;75;3.2964091
+70;"Sequential(
+  (0): Linear(in_features=12, out_features=5, bias=True)
+  (sigmoid1): Sigmoid()
+  (output): Linear(in_features=5, out_features=1, bias=True)
+)";Adadelta;0.001;0.01;25;25;3.3709285
+71;"Sequential(
+  (0): Linear(in_features=12, out_features=2, bias=True)
+  (sigmoid1): Sigmoid()
+  (output): Linear(in_features=2, out_features=1, bias=True)
+)";Adam;0.1;0.1;25;250;0.2081006
+72;"Sequential(
+  (0): Linear(in_features=12, out_features=7, bias=True)
+  (linear): Linear(in_features=7, out_features=5, bias=True)
+  (relu2): ReLU()
+  (output): Linear(in_features=5, out_features=1, bias=True)
+)";SGD;0.001;0.01;5;75;0.14118692
+73;"Sequential(
+  (0): Linear(in_features=12, out_features=2, bias=True)
+  (linear): Linear(in_features=2, out_features=9, bias=True)
+  (sigmoid2): Sigmoid()
+  (output): Linear(in_features=9, out_features=1, bias=True)
+)";Adam;0.0001;0.0001;5;500;0.13803098
+74;"Sequential(
+  (0): Linear(in_features=12, out_features=6, bias=True)
+  (linear): Linear(in_features=6, out_features=10, bias=True)
+  (sigmoid2): Sigmoid()
+  (output): Linear(in_features=10, out_features=1, bias=True)
+)";Adam;0.1;0.01;15;1000;0.17032672
+75;"Sequential(
+  (0): Linear(in_features=12, out_features=6, bias=True)
+  (sigmoid1): Sigmoid()
+  (output): Linear(in_features=6, out_features=1, bias=True)
+)";RMSprop;0.001;0.0001;25;25;1.610972
+76;"Sequential(
+  (0): Linear(in_features=12, out_features=6, bias=True)
+  (output): Linear(in_features=6, out_features=1, bias=True)
+)";Adam;0.01;0.1;20;500;0.15036601
+77;"Sequential(
+  (0): Linear(in_features=12, out_features=8, bias=True)
+  (output): Linear(in_features=8, out_features=1, bias=True)
+)";Adadelta;0.01;0.1;25;50;3.341043
+78;"Sequential(
+  (0): Linear(in_features=12, out_features=8, bias=True)
+  (sigmoid1): Sigmoid()
+  (output): Linear(in_features=8, out_features=1, bias=True)
+)";ASGD;0.0001;0.01;10;500;0.182357
+79;"Sequential(
+  (0): Linear(in_features=12, out_features=2, bias=True)
+  (sigmoid1): Sigmoid()
+  (output): Linear(in_features=2, out_features=1, bias=True)
+)";RMSprop;0.0001;0.0;5;25;2.5840118
+80;"Sequential(
+  (0): Linear(in_features=12, out_features=1, bias=True)
+  (linear): Linear(in_features=1, out_features=4, bias=True)
+  (sigmoid2): Sigmoid()
+  (output): Linear(in_features=4, out_features=1, bias=True)
+)";SGD;0.1;0.01;25;1000;0.1455593
+81;"Sequential(
+  (0): Linear(in_features=12, out_features=10, bias=True)
+  (relu1): ReLU()
+  (output): Linear(in_features=10, out_features=1, bias=True)
+)";Adadelta;0.1;0.1;5;1000;0.14403428
+82;"Sequential(
+  (0): Linear(in_features=12, out_features=4, bias=True)
+  (sigmoid1): Sigmoid()
+  (output): Linear(in_features=4, out_features=1, bias=True)
+)";Adadelta;0.001;0.01;10;75;3.183598
+83;"Sequential(
+  (0): Linear(in_features=12, out_features=10, bias=True)
+  (output): Linear(in_features=10, out_features=1, bias=True)
+)";Adam;0.0001;0.001;20;25;3.2158675
+84;"Sequential(
+  (0): Linear(in_features=12, out_features=7, bias=True)
+  (sigmoid1): Sigmoid()
+  (output): Linear(in_features=7, out_features=1, bias=True)
+)";RMSprop;0.001;0.1;15;1000;0.14125809
+85;"Sequential(
+  (0): Linear(in_features=12, out_features=1, bias=True)
+  (relu1): ReLU()
+  (output): Linear(in_features=1, out_features=1, bias=True)
+)";Adadelta;0.0001;0.1;5;75;3.2077942
+86;"Sequential(
+  (0): Linear(in_features=12, out_features=8, bias=True)
+  (output): Linear(in_features=8, out_features=1, bias=True)
+)";Adadelta;0.0001;0.0;5;50;3.367024
+87;"Sequential(
+  (0): Linear(in_features=12, out_features=2, bias=True)
+  (relu1): ReLU()
+  (output): Linear(in_features=2, out_features=1, bias=True)
+)";ASGD;0.001;0.1;15;500;0.14027576
+88;"Sequential(
+  (0): Linear(in_features=12, out_features=7, bias=True)
+  (linear): Linear(in_features=7, out_features=6, bias=True)
+  (output): Linear(in_features=6, out_features=1, bias=True)
+)";SGD;0.001;0.0001;20;250;0.139469
+89;"Sequential(
+  (0): Linear(in_features=12, out_features=6, bias=True)
+  (linear): Linear(in_features=6, out_features=7, bias=True)
+  (output): Linear(in_features=7, out_features=1, bias=True)
+)";RMSprop;0.0001;0.001;10;250;0.14011233
+90;"Sequential(
+  (0): Linear(in_features=12, out_features=4, bias=True)
+  (sigmoid1): Sigmoid()
+  (output): Linear(in_features=4, out_features=1, bias=True)
+)";ASGD;0.01;0.0;25;500;0.13846897
+91;"Sequential(
+  (0): Linear(in_features=12, out_features=3, bias=True)
+  (relu1): ReLU()
+  (output): Linear(in_features=3, out_features=1, bias=True)
+)";RMSprop;0.1;0.0;15;25;0.1673199
+92;"Sequential(
+  (0): Linear(in_features=12, out_features=8, bias=True)
+  (sigmoid1): Sigmoid()
+  (output): Linear(in_features=8, out_features=1, bias=True)
+)";Adam;0.0001;0.001;25;25;3.0745313
+93;"Sequential(
+  (0): Linear(in_features=12, out_features=7, bias=True)
+  (relu1): ReLU()
+  (output): Linear(in_features=7, out_features=1, bias=True)
+)";SGD;0.0001;0.0;10;75;2.8684628
+94;"Sequential(
+  (0): Linear(in_features=12, out_features=1, bias=True)
+  (relu1): ReLU()
+  (output): Linear(in_features=1, out_features=1, bias=True)
+)";SGD;0.001;0.0;15;100;0.9427792
+95;"Sequential(
+  (0): Linear(in_features=12, out_features=2, bias=True)
+  (output): Linear(in_features=2, out_features=1, bias=True)
+)";SGD;0.001;0.0001;15;75;1.2400361
+96;"Sequential(
+  (0): Linear(in_features=12, out_features=10, bias=True)
+  (relu1): ReLU()
+  (output): Linear(in_features=10, out_features=1, bias=True)
+)";Adadelta;0.1;0.0001;20;250;0.16080292
+97;"Sequential(
+  (0): Linear(in_features=12, out_features=9, bias=True)
+  (output): Linear(in_features=9, out_features=1, bias=True)
+)";ASGD;0.01;0.01;25;50;0.14317504
+98;"Sequential(
+  (0): Linear(in_features=12, out_features=9, bias=True)
+  (relu1): ReLU()
+  (output): Linear(in_features=9, out_features=1, bias=True)
+)";Adam;0.0001;0.0001;20;1000;0.21370296
+99;"Sequential(
+  (0): Linear(in_features=12, out_features=7, bias=True)
+  (sigmoid1): Sigmoid()
+  (output): Linear(in_features=7, out_features=1, bias=True)
+)";Adadelta;0.0001;0.01;15;50;3.3358188

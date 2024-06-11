@@ -1,0 +1,11 @@
+id;fold;val_score;representation
+;0;tensor(0.6323, grad_fn=<SqrtBackward0>);repr
+;1;tensor(0.4502, grad_fn=<SqrtBackward0>);repr
+;2;tensor(0.5568, grad_fn=<SqrtBackward0>);repr
+;3;tensor(0.6933, grad_fn=<SqrtBackward0>);repr
+;4;tensor(0.5678, grad_fn=<SqrtBackward0>);repr
+;5;tensor(0.6363, grad_fn=<SqrtBackward0>);repr
+;6;tensor(0.5563, grad_fn=<SqrtBackward0>);repr
+;7;tensor(0.4964, grad_fn=<SqrtBackward0>);repr
+;8;tensor(0.4677, grad_fn=<SqrtBackward0>);repr
+;9;tensor(0.5760, grad_fn=<SqrtBackward0>);repr

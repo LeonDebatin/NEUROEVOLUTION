@@ -6,3 +6,6 @@ id;fold;val_score;representation
 ;4;tensor(0.1358, grad_fn=<SqrtBackward0>);repr
 ;5;tensor(0.1185, grad_fn=<SqrtBackward0>);repr
 ;6;tensor(0.1381, grad_fn=<SqrtBackward0>);repr
+;7;tensor(0.1337, grad_fn=<SqrtBackward0>);repr
+;8;tensor(0.1393, grad_fn=<SqrtBackward0>);repr
+;9;tensor(0.1438, grad_fn=<SqrtBackward0>);repr

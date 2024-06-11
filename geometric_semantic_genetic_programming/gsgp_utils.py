@@ -1,19 +1,18 @@
 
 import sys
 import os
+
 parent_dir = os.path.abspath(os.path.join(os.path.dirname('../NEUROEVOLUTION'), '..'))
 if parent_dir not in sys.path:
     sys.path.insert(0, parent_dir)
     
-from NEUROEVOLUTION.utils import seed, scale, clipp, cv_logger_init, cv_logger_append
-
 parent_dir = os.path.abspath(os.path.join(os.path.dirname('../NEUROEVOLUTION/gpolnel'), '..'))
 if parent_dir not in sys.path:
     sys.path.insert(0, parent_dir)
     
 from gpolnel.problems.inductive_programming import SML
 from gpolnel.algorithms.genetic_algorithm import GeneticAlgorithm
-
+from NEUROEVOLUTION.utils import seed, clipp, cv_logger_init, cv_logger_append
 
 import torch
 import random
@@ -23,31 +22,25 @@ import numpy as np
 
 
 
-
-
-
-#_evaluate_individual_ffunction
-
-
 def gsgp_train(dl_train, dl_val, ps, n_iter, initializer, sspace, selection_method, mutation_method, mutation_prob, xo_prob, xo_method, has_elitism, allow_reproduction, log_path, ffunction, seed, device):
     
     pi_sml = SML(
         sspace=sspace,
         ffunction=ffunction,
-        dl_train=dl_train, dl_test=dl_val,  # For the algorithm, the unseen is our validation!
+        dl_train=dl_train, dl_test=dl_val,
         n_jobs=8
     )
     mheuristic = GeneticAlgorithm(
         pi=pi_sml,
         initializer=initializer,
-        selector= selection_method, #prm_tournament(pressure=selection_pressure),  #prm_tournament(pressure=selection_pressure)
+        selector= selection_method,
         crossover=xo_method,
-        mutator= mutation_method,#prm_subtree_mtn(initializer=prm_grow(sspace_sml)),     #prm_subtree_mtn(initializer=prm_grow(sspace_sml)),
+        mutator= mutation_method,
         pop_size=ps,
         p_m=mutation_prob,
         p_c=xo_prob,
         elitism=has_elitism,
-        reproduction=allow_reproduction,  # False = or xo or mutation
+        reproduction=allow_reproduction,
         device=device,
         seed=seed
     )
@@ -74,7 +67,6 @@ def gsgp_cross_validation(X, y, batch_size, shuffle, kfold, initializer, ps, n_i
         ds_train = TensorDataset(torch.tensor(X_train.values), torch.tensor(y_train.values))
         ds_val = TensorDataset(torch.tensor(X_val.values), torch.tensor(y_val.values))
 
-        # Creates training and test data loaders
         dl_train = DataLoader(ds_train, batch_size, shuffle)
         dl_val = DataLoader(ds_val, batch_size, shuffle)
 

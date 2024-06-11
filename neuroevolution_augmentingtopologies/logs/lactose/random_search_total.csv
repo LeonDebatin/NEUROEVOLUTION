@@ -133,3 +133,5 @@ i;n_iter;config_file;score
 98;20;configs/config_3;0.08109682061990708
 99;100;configs/config_2;0.06288036176796737
 i;n_iter;config_file;score
+i;n_iter;config_file;score
+1;100;configs/config_2;0.06224745649017464

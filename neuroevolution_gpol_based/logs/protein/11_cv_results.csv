@@ -1,0 +1,11 @@
+id;fold;val_score;representation
+11;0;tensor(0.1732);rep
+11;1;tensor(0.1740);rep
+11;2;tensor(0.1752);rep
+11;3;tensor(0.1667);rep
+11;4;tensor(0.1747);rep
+11;5;tensor(0.1767);rep
+11;6;tensor(0.1759);rep
+11;7;tensor(0.1769);rep
+11;8;tensor(0.1730);rep
+11;9;tensor(0.1763);rep

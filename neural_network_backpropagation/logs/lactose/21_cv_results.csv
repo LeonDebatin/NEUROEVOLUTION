@@ -1,7 +1,7 @@
 id;fold;val_score;representation
 ;0;tensor(0.0651, grad_fn=<SqrtBackward0>);repr
 ;1;tensor(0.0682, grad_fn=<SqrtBackward0>);repr
-;2;tensor(0.0629, grad_fn=<SqrtBackward0>);repr
+;2;tensor(0.0632, grad_fn=<SqrtBackward0>);repr
 ;3;tensor(0.0476, grad_fn=<SqrtBackward0>);repr
 ;4;tensor(0.0673, grad_fn=<SqrtBackward0>);repr
 ;5;tensor(0.0592, grad_fn=<SqrtBackward0>);repr
