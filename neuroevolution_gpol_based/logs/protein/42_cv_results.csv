@@ -3,3 +3,7 @@ id;fold;val_score;representation
 42;1;tensor(0.1678);rep
 42;2;tensor(0.1710);rep
 42;3;tensor(0.1678);rep
+42;4;tensor(0.1708);rep
+42;5;tensor(0.1695);rep
+42;6;tensor(0.1700);rep
+42;7;tensor(0.1692);rep
