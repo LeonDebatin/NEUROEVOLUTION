@@ -9,6 +9,10 @@ import os
 import sys
 import numpy as np
 import re
+from scipy.stats import wilcoxon
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
 
 parent_dir = os.path.abspath(os.path.join(os.path.dirname('../NEUROEVOLUTION'), '..'))
 if parent_dir not in sys.path:
@@ -158,3 +162,66 @@ def mean_cross_validation(X, y, log_path_cv, id=None):
     print('cv_score:', avg_score)
 
     return avg_score
+
+
+
+def wilcoxon_test(series1, series2):
+    return wilcoxon(series2, series1, alternative='less')[1]
+
+def get_wilcoxon_p_values(data):
+
+    p_values = pd.DataFrame(np.zeros((len(data), len(data))), index=data.keys(), columns=data.keys())
+
+    for key1 in data.keys():
+        for key2 in data.keys():
+            if key1 != key2:
+                p_values.loc[key1, key2] = wilcoxon_test(data[key1], data[key2])
+    
+    return p_values
+
+def color_wilcoxon(val):
+    if val == 0:
+        color = 'black'
+    elif val > 0.05:
+        color = 'lightcoral'
+    else:
+        color = 'mediumseagreen'
+    return f'background-color: {color}'
+
+
+
+def generate_niter_plots(dataframes, titles, target):
+    fig, axes = plt.subplots(2, 2, figsize=(8, 6))
+    fig.suptitle("Median Train/Val RMSE for " + f'{target}' , fontsize=12)
+
+    for df, ax, title in zip(dataframes, axes.flatten(), titles):
+        grouped_data = df.groupby('iterations').median().reset_index()
+        
+        sns.lineplot(x=grouped_data['iterations'], y=grouped_data['train_score'], label='Training Score', linestyle='-', color='red', ax=ax)
+        sns.lineplot(x=grouped_data['iterations'], y=grouped_data['val_score'], label='Validation Score', linestyle='--', color='blue', ax=ax)
+
+        ax.set_title(title)
+        ax.set_xlabel('Iterations')
+        ax.set_ylabel('Score')
+        ax.set_ylim(0,3)
+        ax.legend()
+
+    plt.tight_layout(rect=[0, 0.05, 1, 0.95])
+    plt.show()
+    
+    
+
+def filter_dataframe(df, gp_best_params=None, gs_gp_best_params=None, ne_best_params=None, neat_best_params=None):
+    
+    if gp_best_params is not None:
+        n_iter = gp_best_params['n_iter']
+    elif gs_gp_best_params is not None:
+        n_iter = gs_gp_best_params['n_iter']
+    elif ne_best_params is not None:
+        n_iter = ne_best_params['n_iter']
+    elif neat_best_params is not None:
+        n_iter = neat_best_params['n_iter']
+    
+    filtered_data = df[df['iterations'] <= n_iter]
+    
+    return filtered_data.head(n_iter * 10)

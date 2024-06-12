@@ -1,0 +1,11 @@
+id;fold;val_score;representation
+1;0;tensor(0.6680, dtype=torch.float64);[sub, sub, div, tensor(0.8047), tensor(0.1446), div, sub, sub, 2, 10, 10, sub, 2, tensor(0.1446), div, 2, sub, div, tensor(0.8047), tensor(0.1446), div, div, 7, 9, 11]
+1;1;tensor(0.4509, dtype=torch.float64);[sub, sub, div, tensor(0.8047), tensor(0.1446), div, sub, sub, 2, 10, sub, tensor(0.2846), 9, sub, div, tensor(0.8047), tensor(0.1446), div, tensor(0.8047), 11, div, 2, 2]
+1;2;tensor(0.6226, dtype=torch.float64);[sub, sub, div, tensor(0.8047), tensor(0.1446), div, sub, sub, 2, tensor(0.1446), 10, sub, 2, div, tensor(0.8047), 11, div, sub, 2, tensor(0.1446), div, tensor(0.8047), tensor(0.1446)]
+1;3;tensor(0.6614, dtype=torch.float64);[sub, sub, div, tensor(0.8047), tensor(0.1446), div, sub, 2, 10, div, tensor(0.8047), tensor(0.1446), div, 2, 2]
+1;4;tensor(0.5559, dtype=torch.float64);[sub, sub, div, tensor(0.8047), tensor(0.1446), div, sub, 2, 10, div, tensor(0.8047), tensor(0.1446), div, 0, 0]
+1;5;tensor(0.4922, dtype=torch.float64);[sub, sub, div, tensor(0.8047), tensor(0.1446), div, sub, sub, 2, 10, div, 11, 4, sub, div, tensor(0.8047), tensor(0.1446), div, 2, 2, div, sub, sub, 2, 10, div, 11, sub, 4, 10, sub, sub, sub, 2, tensor(0.1446), tensor(0.1446), div, div, 11, 1, div, 11, 9]
+1;6;tensor(0.4959, dtype=torch.float64);[sub, sub, div, tensor(0.8047), tensor(0.1446), div, sub, 2, 10, div, tensor(0.8047), tensor(0.1446), div, sub, sub, 2, div, 11, 1, div, 11, 1, sub, 2, div, sub, 5, 0, 2]
+1;7;tensor(0.4853, dtype=torch.float64);[sub, sub, div, tensor(0.8047), tensor(0.1446), div, sub, 2, 10, div, tensor(0.8047), tensor(0.1446), div, 0, 0]
+1;8;tensor(0.4590, dtype=torch.float64);[sub, sub, div, tensor(0.8047), tensor(0.1446), div, 2, 2, div, 2, div, tensor(0.8047), tensor(0.1446)]
+1;9;tensor(0.6133, dtype=torch.float64);[sub, sub, div, tensor(0.8047), tensor(0.1446), div, sub, sub, 2, 10, 10, div, tensor(0.8047), tensor(0.1446), div, div, tensor(0.8047), tensor(0.1446), sub, div, tensor(0.8047), tensor(0.1446), div, 7, 11]

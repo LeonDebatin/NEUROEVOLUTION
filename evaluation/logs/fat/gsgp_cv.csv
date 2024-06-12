@@ -1,0 +1,11 @@
+id;fold;val_score;representation
+1;0;tensor(0.6494, dtype=torch.float64);[div, tensor(-0.2313), tensor(-0.0631)]
+1;1;tensor(0.4394, dtype=torch.float64);[div, tensor(-0.2313), tensor(-0.0631)]
+1;2;tensor(0.6074, dtype=torch.float64);[div, tensor(-0.2313), tensor(-0.0631)]
+1;3;tensor(0.6770, dtype=torch.float64);[div, tensor(-0.2313), tensor(-0.0631)]
+1;4;tensor(0.5720, dtype=torch.float64);[div, tensor(-0.2313), tensor(-0.0631)]
+1;5;tensor(0.5507, dtype=torch.float64);[div, tensor(-0.2313), tensor(-0.0631)]
+1;6;tensor(0.5313, dtype=torch.float64);[div, tensor(-0.2313), tensor(-0.0631)]
+1;7;tensor(0.4716, dtype=torch.float64);[div, tensor(-0.2313), tensor(-0.0631)]
+1;8;tensor(0.4659, dtype=torch.float64);[div, tensor(-0.2313), tensor(-0.0631)]
+1;9;tensor(0.5453, dtype=torch.float64);[div, tensor(-0.2313), tensor(-0.0631)]

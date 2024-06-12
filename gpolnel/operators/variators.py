@@ -417,12 +417,8 @@ def prm_efficient_gs_mtn(X, initializer, ms):
 
 # +++++++++++++++++++++++++++ Neuroevolution
 def nn_xo(p1, p2):
-    #
-    # Implement the NN crossover here
-    #
-    
-    
 
+    # The crossover operator for neural networks is a weighted average of the parents' weights and biases. The weight is a random factor.
     factor = random.uniform(0, 0.5)
     for i in range(len(p1[0])):
         help1, help2 = p1[0][i], p2[0][i]
@@ -445,7 +441,6 @@ def prm_nn_mtn(ms, sspace):
             repr_[0][i] = repr_[0][i] + torch.normal(mean=0, std=ms, size=(repr_[0][i].shape[0], repr_[0][i].shape[1]))
         
         #add gaussian nosie to biases
-        #print(repr_[1])
         repr_[1][0] = repr_[1][0] + torch.normal(mean=0, std=ms, size=(1, len(repr_[1][0])))
         
         

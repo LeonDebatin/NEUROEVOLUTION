@@ -111,6 +111,7 @@ def nn_cross_validation(X_train, y_train, model, cv_log_path, train_log_path, lo
         results.append(score.detach().numpy())
         
     avg_score = np.mean(results)
+    print(avg_score)
     return avg_score
         
 

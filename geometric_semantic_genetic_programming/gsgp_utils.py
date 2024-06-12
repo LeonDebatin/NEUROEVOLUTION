@@ -50,7 +50,7 @@ def gsgp_train(dl_train, dl_val, ps, n_iter, initializer, sspace, selection_meth
         verbose=0, log=1, log_path=log_path,
         test_elite=True
     )
-    return mheuristic
+    return mheuristic, pi_sml
 
 
 def gsgp_cross_validation(X, y, batch_size, shuffle, kfold, initializer, ps, n_iter,  sspace,  selection_method, mutation_prob, mutation_method, xo_prob, xo_method, has_elitism, allow_reproduction,log_path_cv, log_path_train, ffunction, seed,  device, id=None):
@@ -70,8 +70,8 @@ def gsgp_cross_validation(X, y, batch_size, shuffle, kfold, initializer, ps, n_i
         dl_train = DataLoader(ds_train, batch_size, shuffle)
         dl_val = DataLoader(ds_val, batch_size, shuffle)
 
-        m = gsgp_train(dl_train = dl_train, dl_val = dl_val, initializer=initializer, ps=ps, n_iter=n_iter, sspace = sspace, selection_method=selection_method, mutation_method=mutation_method, xo_method=xo_method, ffunction=ffunction, log_path= log_path_train,  mutation_prob=mutation_prob, xo_prob=xo_prob, has_elitism=has_elitism, allow_reproduction=allow_reproduction,  seed=seed,  device=device)
-        score = m.best_sol.fit
+        m, pi = gsgp_train(dl_train = dl_train, dl_val = dl_val, initializer=initializer, ps=ps, n_iter=n_iter, sspace = sspace, selection_method=selection_method, mutation_method=mutation_method, xo_method=xo_method, ffunction=ffunction, log_path= log_path_train,  mutation_prob=mutation_prob, xo_prob=xo_prob, has_elitism=has_elitism, allow_reproduction=allow_reproduction,  seed=seed,  device=device)
+        score = pi._evaluate_sol(m.best_sol, dl_val)
         results.append(score)
     
         cv_logger_append(log_path_cv, id, fold, score, m.best_sol.repr_)

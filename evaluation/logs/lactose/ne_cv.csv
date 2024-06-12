@@ -1,11 +1,11 @@
 id;fold;val_score;representation
-1;0;tensor(0.6898);rep
-1;1;tensor(0.5658);rep
-1;2;tensor(0.4402);rep
-1;3;tensor(0.4106);rep
-1;4;tensor(0.7759);rep
-1;5;tensor(0.3589);rep
-1;6;tensor(0.2670);rep
-1;7;tensor(0.3860);rep
-1;8;tensor(0.7020);rep
-1;9;tensor(0.6770);rep
+1;0;tensor(2.9664, dtype=torch.float64);rep
+1;1;tensor(1.1273, dtype=torch.float64);rep
+1;2;tensor(0.9380, dtype=torch.float64);rep
+1;3;tensor(1.1202, dtype=torch.float64);rep
+1;4;tensor(0.8307, dtype=torch.float64);rep
+1;5;tensor(3.4604, dtype=torch.float64);rep
+1;6;tensor(1.5933, dtype=torch.float64);rep
+1;7;tensor(0.7251, dtype=torch.float64);rep
+1;8;tensor(0.9740, dtype=torch.float64);rep
+1;9;tensor(0.9301, dtype=torch.float64);rep

@@ -1,0 +1,11 @@
+id;fold;val_score;representation
+1;0;tensor(0.6709, dtype=torch.float64);rep
+1;1;tensor(0.8568, dtype=torch.float64);rep
+1;2;tensor(0.6478, dtype=torch.float64);rep
+1;3;tensor(0.2626, dtype=torch.float64);rep
+1;4;tensor(0.6358, dtype=torch.float64);rep
+1;5;tensor(0.3577, dtype=torch.float64);rep
+1;6;tensor(0.6693, dtype=torch.float64);rep
+1;7;tensor(0.6330, dtype=torch.float64);rep
+1;8;tensor(0.3647, dtype=torch.float64);rep
+1;9;tensor(0.7230, dtype=torch.float64);rep
